@@ -1,9 +1,9 @@
-"use client";
+﻿"use client";
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
-import { Zap, Cog, Thermometer, Calculator } from "lucide-react";
+import { Zap, Cog, Thermometer, Calculator, Calendar, Home, Sun, TowerControl } from "lucide-react";
 
 export default function HomePage() {
   const router = useRouter();
@@ -59,7 +59,7 @@ const [exchangeRates, setExchangeRates] = useState({ USD: 0, EUR: 0, CNY: 0 });
 const [isLoadingRates, setIsLoadingRates] = useState(false);
 
 // Состояние для калькулятора плитки/ламината
-const [roomArea, setRoomArea] = useState(''); // Площадь комнаты в м²
+const [roomArea, setRoomArea] = useState(''); // Площадь комнаты в м?
 const [tileWidth, setTileWidth] = useState(''); // Ширина плитки в см
 const [tileHeight, setTileHeight] = useState(''); // Длина плитки в см
 const [tilesPerBox, setTilesPerBox] = useState(''); // Штук в упаковке
@@ -170,8 +170,8 @@ const [showHpResult, setShowHpResult] = useState(false);
       return;
     }
     
-    // Формула: площадь (м²) × толщина (м) × плотность (2000 кг/м³) ÷ 25 кг/мешок
-    const volume = area * (thickness / 1000); // толщина в мм → метры
+    // Формула: площадь (м?) ? толщина (м) ? плотность (2000 кг/м?) ? 25 кг/мешок
+    const volume = area * (thickness / 1000); // толщина в мм > метры
     const weight = volume * 2000; // кг
     const bags = Math.ceil(weight / 25); // округляем вверх
     
@@ -229,9 +229,9 @@ const [showHpResult, setShowHpResult] = useState(false);
 
  // Сброс (пустые поля)
 const resetSolarCalculator = () => {
-  setEnergyConsumption('');  // ← Пусто вместо '300'
-  setPanelPower('');        // ← Пусто вместо '400'
-  setSunHours('');          // ← Пусто вместо '4'
+  setEnergyConsumption('');  // < Пусто вместо '300'
+  setPanelPower('');        // < Пусто вместо '400'
+  setSunHours('');          // < Пусто вместо '4'
   setSolarResult(null);
 };
 
@@ -301,7 +301,7 @@ const generatePassword = () => {
 };
 
 const resetPasswordGenerator = () => {
-  setPasswordLength(''); // ← вот проблема!
+  setPasswordLength(''); // < вот проблема!
   setUseUppercase(true);
   setUseLowercase(true);
   setUseNumbers(true);
@@ -443,7 +443,7 @@ const calculateTiles = () => {
   const perBox = parseInt(tilesPerBox) || 0;
 
   if (area > 0 && width > 0 && height > 0 && perBox > 0) {
-    // Площадь одной плитки в м² (см → м)
+    // Площадь одной плитки в м? (см > м)
     const tileArea = (width / 100) * (height / 100);
     
     // Нужное количество плиток (площадь комнаты / площадь плитки + запас 10%)
@@ -753,14 +753,14 @@ const convertHorsepower = () => {
 </main>
 
                   {/* Мини-калькуляторы для главной */}
-      <div className="max-w-6xl mx-auto mt-20"> {/* ← Увеличил отступ mt-20 */}
+      <div className="max-w-6xl mx-auto mt-20"> {/* < Увеличил отступ mt-20 */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           
                     {/* МЕШКИ ЦЕМЕНТА */}
           <div className="bg-gray-800 rounded-xl p-4 border border-green-500/20 min-h-[200px] sm:min-h-[240px] flex flex-col">
             <div className="flex items-center gap-2 mb-3">
               <div className="p-1.5 bg-green-600/20 rounded-lg">
-                <span className="text-green-400 font-bold text-sm">🏗️</span>
+                <span className="text-green-400 text-sm">🏗️</span>
               </div>
               <div className="flex-1">
                 <h3 className="text-base font-bold text-white">Мешки цемента</h3>
@@ -791,7 +791,7 @@ const convertHorsepower = () => {
                 <p className="text-2xl font-bold text-green-400">{bagsResult}</p>
                 <p className="text-xs text-gray-500 mt-1">мешков по 25 кг</p>
                 <p className="text-xs text-gray-400 mt-2 text-center">
-                  {cementArea} м² × {cementThickness} мм
+                  {cementArea} м? ? {cementThickness} мм
                 </p>
               </div>
             ) : (
@@ -803,7 +803,7 @@ const convertHorsepower = () => {
                     value={cementArea}
                     onChange={(e) => setCementArea(e.target.value)}
                     className="w-full p-2 text-sm bg-gray-700 rounded text-white border border-gray-600"
-                    placeholder="Площадь (м²)"
+                    placeholder="Площадь (м?)"
                     min="0.1"
                     step="0.1"
                   />
@@ -832,7 +832,7 @@ const convertHorsepower = () => {
           <div className="bg-gray-800 rounded-xl p-4 border border-green-500/20 min-h-[200px] sm:min-h-[240px] flex flex-col">
             <div className="flex items-center gap-2 mb-3">
               <div className="p-1.5 bg-yellow-600/20 rounded-lg">
-                <span className="text-yellow-400 font-bold text-sm">☀️</span>
+                <span className="text-green-400 text-sm">☀️</span>
               </div>
               <div className="flex-1">
                 <h3 className="text-base font-bold text-white">Солнечные панели</h3>
@@ -861,7 +861,7 @@ const convertHorsepower = () => {
               <div className="flex-1 flex flex-col items-center justify-center">
                 <p className="text-xs text-gray-400 mb-2 text-center">Нужно панелей</p>
                 <p className="text-3xl font-bold text-yellow-400">{solarResult.panelsNeeded}</p>
-                <p className="text-xs text-gray-500 mt-1">шт × {panelPower} Вт</p>
+                <p className="text-xs text-gray-500 mt-1">шт ? {panelPower} Вт</p>
                 <p className="text-xs text-gray-400 mt-3">
                   {solarResult.totalPower.toFixed(1)} кВт • {solarResult.coveragePercent.toFixed(0)}% покрытия
                 </p>
@@ -913,10 +913,10 @@ const convertHorsepower = () => {
           </div>
           
                                         {/* ВОЗРАСТ В ДНЯХ */}
-          <div className="bg-gray-800 rounded-xl p-4 border border-green-500/20 min-h-[200px] sm:min-h-[240px] flex flex-col"> {/* ← h-[240px] и flex-col */}
+          <div className="bg-gray-800 rounded-xl p-4 border border-green-500/20 min-h-[200px] sm:min-h-[240px] flex flex-col"> {/* < h-[240px] и flex-col */}
             <div className="flex items-center gap-2 mb-3">
               <div className="p-1.5 bg-blue-600/20 rounded-lg">
-                <span className="text-blue-400 font-bold text-sm">📅</span>
+                <span className="text-green-400 text-sm">📅</span>
               </div>
               <div className="flex-1">
                 <h3 className="text-base font-bold text-white">Возраст в днях</h3>
@@ -940,7 +940,7 @@ const convertHorsepower = () => {
               )}
             </div>
             
-            <div className="flex-1 space-y-3"> {/* ← flex-1 занимает оставшееся место */}
+            <div className="flex-1 space-y-3"> {/* < flex-1 занимает оставшееся место */}
               <div>
                 <input 
                   type="date" 
@@ -960,7 +960,7 @@ const convertHorsepower = () => {
               </button>
               
               {ageInDays !== null && (
-                <div className="p-2 bg-gray-900 rounded-lg text-center overflow-hidden"> {/* ← overflow-hidden */}
+                <div className="p-2 bg-gray-900 rounded-lg text-center overflow-hidden"> {/* < overflow-hidden */}
                   <p className="text-xs text-gray-400">Вы прожили</p>
                   <p className="text-lg font-bold text-blue-400 truncate">{ageInDays.toLocaleString('ru-RU')}</p>
                   <p className="text-xs text-gray-500">дней</p>
@@ -973,7 +973,7 @@ const convertHorsepower = () => {
 <div className="bg-gray-800 rounded-xl p-4 border border-green-500/20 min-h-[200px] sm:min-h-[240px] flex flex-col">
   <div className="flex items-center gap-2 mb-3">
     <div className="p-1.5 bg-purple-600/20 rounded-lg">
-      <span className="text-purple-400 font-bold text-sm">🎲</span>
+      <span className="text-green-400 text-sm">🔢</span>
     </div>
     <div className="flex-1">
       <h3 className="text-base font-bold text-white">Случайные числа</h3>
@@ -1002,7 +1002,7 @@ const convertHorsepower = () => {
   <div className="flex-1 flex flex-col">
     <div className="mb-2">
       <p className="text-xs text-gray-400 text-center">
-        {minValue} → {maxValue} • {count} чисел
+        {minValue} {maxValue} • {count} чисел
       </p>
     </div>
     <div className="flex-1 overflow-y-auto">
@@ -1073,7 +1073,7 @@ const convertHorsepower = () => {
 <div className="bg-gray-800 rounded-xl p-4 border border-green-500/20 min-h-[200px] sm:min-h-[240px] flex flex-col">
   <div className="flex items-center gap-2 mb-3">
     <div className="p-1.5 bg-cyan-600/20 rounded-lg">
-      <span className="text-cyan-400 font-bold text-sm">🔒</span>
+      <span className="text-green-400 text-sm">🔒</span>
     </div>
     <div className="flex-1">
       <h3 className="text-base font-bold text-white">Генератор паролей</h3>
@@ -1197,7 +1197,7 @@ const convertHorsepower = () => {
 <div className="bg-gray-800 rounded-xl p-4 border border-green-500/20 min-h-[200px] sm:min-h-[240px] flex flex-col">
   <div className="flex items-center gap-2 mb-3">
     <div className="p-1.5 bg-pink-600/20 rounded-lg">
-      <span className="text-pink-400 font-bold text-sm">⚖️</span>
+      <span className="text-green-400 text-sm">⚖️</span>
     </div>
     <div className="flex-1">
       <h3 className="text-base font-bold text-white">Индекс массы тела</h3>
@@ -1305,7 +1305,7 @@ const convertHorsepower = () => {
 <div className="bg-gray-800 rounded-xl p-4 border border-green-500/20 min-h-[200px] sm:min-h-[240px] flex flex-col">
   <div className="flex items-center gap-2 mb-3">
     <div className="p-1.5 bg-emerald-600/20 rounded-lg">
-      <span className="text-emerald-400 font-bold text-sm">💱</span>
+      <span className="text-green-400 text-sm">💱</span>
     </div>
     <div className="flex-1">
       <h3 className="text-base font-bold text-white">Конвертер валют</h3>
@@ -1343,7 +1343,7 @@ const convertHorsepower = () => {
       </p>
       <p className="text-sm text-gray-300 mt-1">{toCurrency}</p>
       <p className="text-xs text-gray-500 mt-3 text-center">
-        {amount} {fromCurrency} → {convertedAmount} {toCurrency}
+        {amount} {fromCurrency} {convertedAmount} {toCurrency}
       </p>
       <p className="text-xs text-gray-400 mt-2 text-center">
         Курс: 1 {fromCurrency} = {(exchangeRates[fromCurrency as keyof typeof exchangeRates] || 1).toFixed(2)} RUB
@@ -1416,7 +1416,7 @@ const convertHorsepower = () => {
       
       {!isLoadingRates && exchangeRates.USD > 0 && (
   <div className="text-xs text-gray-500 text-center pt-2 border-t border-gray-700">
-    <p>Курс ЦБ РФ: USD = {exchangeRates.USD.toFixed(2)}₽, EUR = {exchangeRates.EUR.toFixed(2)}₽,</p>
+    <p>Курс ЦБ РФ: USD = {exchangeRates.USD.toFixed(2)}?, EUR = {exchangeRates.EUR.toFixed(2)}?,</p>
   </div>
    )}
     </div>
@@ -1427,7 +1427,7 @@ const convertHorsepower = () => {
 <div className="bg-gray-800 rounded-xl p-4 border border-green-500/20 min-h-[200px] sm:min-h-[240px] flex flex-col">
   <div className="flex items-center gap-2 mb-2">
     <div className="p-1 bg-amber-600/20 rounded-lg">
-      <span className="text-amber-400 font-bold text-sm">🧱</span>
+      <span className="text-green-400 text-sm">🧱</span>
     </div>
     <div className="flex-1">
       <h3 className="text-base font-bold text-white">Плитка/Ламинат</h3>
@@ -1450,8 +1450,8 @@ const convertHorsepower = () => {
         <p className="text-xs text-gray-500">({tileResult.tilesNeeded} шт.)</p>
       </div>
       <div className="space-y-0.5 text-xs">
-        <div className="flex justify-between"><span className="text-gray-400">Площадь:</span><span className="text-gray-300">{roomArea} м²</span></div>
-        <div className="flex justify-between"><span className="text-gray-400">Размер:</span><span className="text-gray-300">{tileWidth}×{tileHeight} см</span></div>
+        <div className="flex justify-between"><span className="text-gray-400">Площадь:</span><span className="text-gray-300">{roomArea} м?</span></div>
+        <div className="flex justify-between"><span className="text-gray-400">Размер:</span><span className="text-gray-300">{tileWidth}?{tileHeight} см</span></div>
         <div className="flex justify-between"><span className="text-gray-400">В упаковке:</span><span className="text-gray-300">{tilesPerBox} шт.</span></div>
       </div>
     </div>
@@ -1460,7 +1460,7 @@ const convertHorsepower = () => {
       <div className="space-y-1.5">
         <input 
           type="text" inputMode="decimal" value={roomArea} onChange={(e) => { const val = e.target.value; if (val === '' || /^\d*\.?\d*$/.test(val)) setRoomArea(val); }}
-          className="w-full p-1.5 text-sm bg-gray-700 rounded text-white border border-gray-600" placeholder="Площадь (м²)"
+          className="w-full p-1.5 text-sm bg-gray-700 rounded text-white border border-gray-600" placeholder="Площадь (м?)"
         />
         <div className="grid grid-cols-2 gap-1.5">
           <input type="text" inputMode="decimal" value={tileWidth} onChange={(e) => { const val = e.target.value; if (val === '' || /^\d*\.?\d*$/.test(val)) setTileWidth(val); }}
@@ -1489,7 +1489,7 @@ const convertHorsepower = () => {
 <div className="bg-gray-800 rounded-xl p-4 border border-green-500/20 min-h-[200px] sm:min-h-[240px] flex flex-col">
   <div className="flex items-center gap-2 mb-3">
     <div className="p-1.5 bg-violet-600/20 rounded-lg">
-      <span className="text-violet-400 font-bold text-sm">🧪</span>
+      <span className="text-green-400 text-sm">⚗️</span>
     </div>
     <div className="flex-1">
       <h3 className="text-base font-bold text-white">Молярная масса</h3>
@@ -1557,7 +1557,7 @@ const convertHorsepower = () => {
 <div className="bg-gray-800 rounded-xl p-4 border border-green-500/20 min-h-[200px] sm:min-h-[240px] flex flex-col">
   <div className="flex items-center gap-2 mb-3">
     <div className="p-1.5 bg-indigo-600/20 rounded-lg">
-      <span className="text-indigo-400 font-bold text-sm">🎨</span>
+      <span className="text-green-400 text-sm">🎨</span>
     </div>
     <div className="flex-1">
       <h3 className="text-base font-bold text-white">Цветовая гамма</h3>
@@ -1598,7 +1598,7 @@ const convertHorsepower = () => {
     ></div>
     <span className="text-xs font-mono text-white">{baseColor}</span>
   </div>
-  <div className="text-gray-500">→</div>
+  <div className="text-gray-500"></div>
   <div className="flex items-center gap-1.5">
     <div 
       className="w-6 h-6 rounded border border-gray-600"
@@ -1662,7 +1662,7 @@ const convertHorsepower = () => {
 <div className="bg-gray-800 rounded-xl p-4 border border-green-500/20 min-h-[200px] sm:min-h-[240px] flex flex-col">
   <div className="flex items-center gap-2 mb-3">
     <div className="p-1.5 bg-rose-600/20 rounded-lg">
-      <span className="text-rose-300 font-bold text-sm">📅</span>
+      <span className="text-green-400 text-sm">📅</span>
     </div>
     <div className="flex-1">
       <h3 className="text-base font-bold text-white">Цикл-трекер</h3>
@@ -1776,11 +1776,11 @@ const convertHorsepower = () => {
 <div className="bg-gray-800 rounded-xl p-4 border border-blue-500/20 h-[240px] flex flex-col">
   <div className="flex items-center gap-2 mb-3">
     <div className="p-1.5 bg-blue-600/20 rounded-lg">
-      <span className="text-blue-400 font-bold text-sm">⚙️</span>
+      <span className="text-green-400 text-sm">⚙️</span>
     </div>
     <div className="flex-1">
       <h3 className="text-base font-bold text-white">Калькулятор Л.С.</h3>
-      <p className="text-gray-400 text-xs">л.с. ↔ Вт ↔ кВт</p>
+      <p className="text-gray-400 text-xs">л.с. - Вт - кВт</p>
     </div>
     {(hpValue || showHpResult) && (
       <button 
@@ -1809,7 +1809,7 @@ const convertHorsepower = () => {
       <p className="text-2xl font-bold text-blue-400">{hpResult}</p>
       <p className="text-sm text-gray-300 mt-1">{getUnitSymbol(hpTo)}</p>
       <p className="text-xs text-gray-500 mt-3 text-center">
-        {getUnitName(hpFrom)} → {getUnitName(hpTo)}
+        {getUnitName(hpFrom)} {getUnitName(hpTo)}
       </p>
     </div>
   ) : (
@@ -1872,8 +1872,8 @@ const convertHorsepower = () => {
   )}
 </div>
 
-</div> {/* ← Закрываем div.grid для мини-калькуляторов */}
-    </div> {/* ← Закрываем div.max-w-6xl.mx-auto.mt-20 */}
+</div> {/* < Закрываем div.grid для мини-калькуляторов */}
+    </div> {/* < Закрываем div.max-w-6xl.mx-auto.mt-20 */}
  <footer className="text-center mt-10 text-gray-500 text-sm">© {new Date().getFullYear()} Calcoria. Все права защищены.</footer>
 </div>
 );
