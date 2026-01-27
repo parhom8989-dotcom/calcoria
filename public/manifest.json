@@ -1,0 +1,9 @@
+{
+  "name": "Calcoria - центр инженерных расчетов и не только.",
+  "short_name": "Calcoria",
+  "description": "Набор точных калькуляторов и конвертеров на все случаи жизни.",
+  "theme_color": "#000000",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "start_url": "/"
+}
