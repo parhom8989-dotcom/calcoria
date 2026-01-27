@@ -475,32 +475,25 @@ const resetTireCalculator = () => {
   // ========== РЕНДЕР СТРАНИЦЫ ==========
   return (
     <div className="min-h-screen bg-gray-900 text-gray-100 py-10 px-4">
-            {/* Шапка: заголовок по центру, кнопка справа */}
-      <div className="max-w-7xl mx-auto mb-12 relative">
-        {/* Контейнер для выравнивания */}
-        <div className="flex items-center">
-          {/* Левая часть (пустая для баланса) */}
-          <div className="flex-1"></div>
-          
-          {/* Заголовок по центру */}
-          <h1 className="text-5xl md:text-6xl font-bold text-gray-300 tracking-tight text-center flex-2">
-            Прочие калькуляторы
-          </h1>
-          
-          {/* Кнопка справа */}
-          <div className="flex-1 flex justify-end">
-            <a
-              href="/"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gray-800 hover:bg-gray-700 border border-gray-600 text-gray-300 hover:text-white transition-colors whitespace-nowrap"
-            >
-              <Home className="w-4 h-4" />
-              На главную
-            </a>
-          </div>
+            {/* Шапка: кнопка "На главную" справа */}
+      <div className="max-w-7xl mx-auto mb-12">
+        <div className="flex justify-end">
+          <a
+            href="/"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gray-800 hover:bg-gray-700 border border-gray-600 text-gray-300 hover:text-white transition-colors"
+          >
+            <Home className="w-4 h-4" />
+            На главную
+          </a>
         </div>
       </div>
-      
+      <h1 className="text-5xl md:text-6xl font-bold text-center mb-12 text-white
+       tracking-tight">
+        Прочее
+      </h1>
+
       <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4 max-w-7xl mx-auto">
+
         
         {/* КАЛЬКУЛЯТОР 1: ИПОТЕКА */}
         <div className="bg-gray-800 p-6 rounded-2xl shadow-2xl border border-gray-700 hover:border-cyan-500 transition-all duration-300 relative">
