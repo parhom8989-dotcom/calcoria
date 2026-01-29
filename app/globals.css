@@ -524,3 +524,8 @@ footer {
     position: relative;
     z-index: 1;
 }
+
+/* app/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
