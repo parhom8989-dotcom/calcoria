@@ -1,4 +1,4 @@
-﻿// app/page.tsx - ПОЛНАЯ ГЛАВНАЯ СТРАНИЦА
+﻿// app/page.tsx - ИСПРАВЛЕННАЯ ГЛАВНАЯ СТРАНИЦА
 "use client";
 
 import { useState } from 'react';
@@ -34,10 +34,10 @@ export default function HomePage() {
           </Link>
           
           <nav>
-            <a href="#mechanics">Механика</a>
-            <a href="#electrical">Электротехника</a>
-            <a href="#thermal">Теплотехника</a>
-            <a href="#other">Прочее</a>
+            <a href="/mechanics">Механика</a>
+            <a href="/elektrotekhnika">Электротехника</a>
+            <a href="/teplotekhnika">Теплотехника</a>
+            <a href="/other">Прочее</a>
             <a href="#about">О нас</a>
           </nav>
           
@@ -77,36 +77,48 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 3. КАТЕГОРИИ */}
-      <div className="container">
-        <h2 className="section-title">Категории расчётов</h2>
-        <div className="categories-grid">
-          <div className="category-card blue">
-            <span className="category-icon">⚙️</span>
-            <h3>Механика</h3>
-            <p>Расчёты балки, момент инерции, прочность материалов</p>
-          </div>
-          
-          <div className="category-card yellow">
-            <span className="category-icon">⚡</span>
-            <h3>Электротехника</h3>
-            <p>Закон Ома, сопротивление, конденсаторы, делители напряжения</p>
-          </div>
-          
-          <div className="category-card orange">
-            <span className="category-icon">🌡️</span>
-            <h3>Теплотехника</h3>
-            <p>Теплопередача, потери энергии, тепловые балансы, изоляция</p>
-          </div>
-          
-          <div className="category-card green">
-            <span className="category-icon">📊</span>
-            <h3>Прочее</h3>
-            <p>Конвертеры единиц, ипотечный калькулятор и другое</p>
-          </div>
-        </div>
+      {/* 4. КАТЕГОРИИ - ИСПРАВЛЕННАЯ ВЕРСИЯ */}
+<div className="container">
+  <h2 className="section-title">Категории расчётов</h2>
+  <div className="categories-grid">
+    {/* 1. МЕХАНИКА */}
+    <a href="mechanics" style={{ color: 'white', textDecoration: 'none' }}>
+      <div className="category-card blue">
+        <span className="category-icon">⚙️</span>
+        <h3>Механика</h3>
+        <p>Расчёты балки, момент инерции, прочность материалов</p>
+      </div>
+    </a>
+    
+    {/* 2. ЭЛЕКТРОТЕХНИКА */}
+    <a href="/elektrotekhnika" style={{ color: 'white', textDecoration: 'none' }}>
+      <div className="category-card yellow">
+        <span className="category-icon">⚡</span>
+        <h3>Электротехника</h3>
+        <p>Закон Ома, сопротивление, конденсаторы, делители напряжения</p>
+      </div>
+    </a>
+    
+    {/* 3. ТЕПЛОТЕХНИКА */}
+    <a href="/teplotekhnika" style={{ color: 'white', textDecoration: 'none' }}>
+      <div className="category-card orange">
+        <span className="category-icon">🌡️</span>
+        <h3>Теплотехника</h3>
+        <p>Теплопередача, потери энергии, тепловые балансы, изоляция</p>
+      </div>
+    </a>
+    
+    {/* 4. ПРОЧЕЕ */}
+    <a href="/other" style={{ color: 'white', textDecoration: 'none' }}>
+      <div className="category-card green">
+        <span className="category-icon">📊</span>
+        <h3>Прочее</h3>
+        <p>Конвертеры единиц, ипотечный калькулятор и другое</p>
+      </div>
+    </a>
+  </div>
 
-        {/* 4. ПОПУЛЯРНЫЕ КАЛЬКУЛЯТОРЫ */}
+        {/* 5. ПОПУЛЯРНЫЕ КАЛЬКУЛЯТОРЫ */}
         <h2 className="section-title">Популярные калькуляторы</h2>
         <div className="calculators-grid">
           {popularCalculators.map(calc => (
@@ -125,7 +137,7 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* 5. ПОЛНЫЙ ПОДВАЛ (FOOTER) */}
+      {/* 6. ПОЛНЫЙ ПОДВАЛ (FOOTER) */}
       <footer>
         <div className="footer-container">
           <div className="footer-section">
@@ -145,10 +157,10 @@ export default function HomePage() {
           <div className="footer-section">
             <h4>Категории</h4>
             <ul className="footer-links">
-              <li><a href="#mechanics">Механика</a></li>
-              <li><a href="#electrical">Электротехника</a></li>
-              <li><a href="#thermal">Теплотехника</a></li>
-              <li><a href="#other">Прочее</a></li>
+              <li><a href="/mechanics">Механика</a></li>
+              <li><a href="/elektrotekhnika">Электротехника</a></li>
+              <li><a href="/teplotekhnika">Теплотехника</a></li>
+              <li><a href="/other">Прочее</a></li>
             </ul>
           </div>
           
