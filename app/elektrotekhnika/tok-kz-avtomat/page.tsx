@@ -314,8 +314,8 @@ export default function TokKzAvtomatPage() {
               value={voltage}
               onChange={(e) => setVoltage(e.target.value)}
               style={{
-                width: '100%',
-                padding: '12px',
+                width: '95%',
+                padding: '10px',
                 borderRadius: '8px',
                 backgroundColor: '#334155',
                 border: '1px solid #475569',
@@ -361,7 +361,7 @@ export default function TokKzAvtomatPage() {
               value={power}
               onChange={(e) => setPower(e.target.value)}
               style={{
-                width: '100%',
+                width: '95%',
                 padding: '12px',
                 borderRadius: '8px',
                 backgroundColor: '#334155',
@@ -388,7 +388,7 @@ export default function TokKzAvtomatPage() {
                 value={distance}
                 onChange={(e) => setDistance(e.target.value)}
                 style={{
-                  width: '100%',
+                  width: '95%',
                   padding: '12px',
                   borderRadius: '8px',
                   backgroundColor: '#334155',
@@ -437,7 +437,7 @@ export default function TokKzAvtomatPage() {
                 value={cableSection}
                 onChange={(e) => setCableSection(e.target.value)}
                 style={{
-                  width: '100%',
+                  width: '95%',
                   padding: '12px',
                   borderRadius: '8px',
                   backgroundColor: '#334155',

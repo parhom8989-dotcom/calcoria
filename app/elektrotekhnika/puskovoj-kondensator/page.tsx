@@ -315,223 +315,243 @@ export default function PuskovojKondensatorPage() {
           </div>
 
           {/* Параметры */}
-          <div style={{ marginBottom: '24px' }}>
-            <h3 style={{ color: '#cbd5e1', marginBottom: '16px', fontSize: '18px' }}>
-              Параметры двигателя
-            </h3>
-            
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '16px' }}>
-              <div>
-                <label style={{ display: 'block', marginBottom: '8px', color: '#cbd5e1' }}>
-                  Мощность (кВт)
-                </label>
-                <input
-                  type="number"
-                  step="0.1"
-                  value={motorPower}
-                  onChange={(e) => setMotorPower(e.target.value)}
-                  style={{
-                    width: '100%',
-                    padding: '12px',
-                    borderRadius: '8px',
-                    backgroundColor: '#334155',
-                    border: '1px solid #475569',
-                    color: 'white',
-                    fontSize: '16px'
-                  }}
-                />
-                <p style={{ fontSize: '12px', color: '#64748b', marginTop: '4px' }}>
-                  0.25 - 5.5 кВт для бытовых
-                </p>
-              </div>
-              
-              <div>
-                <label style={{ display: 'block', marginBottom: '8px', color: '#cbd5e1' }}>
-                  Напряжение сети (В)
-                </label>
-                <input
-                  type="number"
-                  value={voltage}
-                  onChange={(e) => setVoltage(e.target.value)}
-                  style={{
-                    width: '100%',
-                    padding: '12px',
-                    borderRadius: '8px',
-                    backgroundColor: '#334155',
-                    border: '1px solid #475569',
-                    color: 'white',
-                    fontSize: '16px'
-                  }}
-                />
-                <p style={{ fontSize: '12px', color: '#64748b', marginTop: '4px' }}>
-                  220В (однофазные), 380В (трёхфазные)
-                </p>
-              </div>
-            </div>
-            
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '16px' }}>
-              <div>
-                <label style={{ display: 'block', marginBottom: '8px', color: '#cbd5e1' }}>
-                  Частота (Гц)
-                </label>
-                <input
-                  type="number"
-                  value={frequency}
-                  onChange={(e) => setFrequency(e.target.value)}
-                  style={{
-                    width: '100%',
-                    padding: '12px',
-                    borderRadius: '8px',
-                    backgroundColor: '#334155',
-                    border: '1px solid #475569',
-                    color: 'white',
-                    fontSize: '16px'
-                  }}
-                />
-                <p style={{ fontSize: '12px', color: '#64748b', marginTop: '4px' }}>
-                  50 Гц (Россия), 60 Гц (США)
-                </p>
-              </div>
-              
-              <div>
-                <label style={{ display: 'block', marginBottom: '8px', color: '#cbd5e1' }}>
-                  КПД двигателя
-                </label>
-                <input
-                  type="number"
-                  step="0.01"
-                  min="0.1"
-                  max="1"
-                  value={efficiency}
-                  onChange={(e) => setEfficiency(e.target.value)}
-                  style={{
-                    width: '100%',
-                    padding: '12px',
-                    borderRadius: '8px',
-                    backgroundColor: '#334155',
-                    border: '1px solid #475569',
-                    color: 'white',
-                    fontSize: '16px'
-                  }}
-                />
-                <p style={{ fontSize: '12px', color: '#64748b', marginTop: '4px' }}>
-                  Обычно 0.7-0.9
-                </p>
-              </div>
-              
-              <div>
-                <label style={{ display: 'block', marginBottom: '8px', color: '#cbd5e1' }}>
-                  cos φ (коэф. мощности)
-                </label>
-                <input
-                  type="number"
-                  step="0.01"
-                  min="0.1"
-                  max="1"
-                  value={powerFactor}
-                  onChange={(e) => setPowerFactor(e.target.value)}
-                  style={{
-                    width: '100%',
-                    padding: '12px',
-                    borderRadius: '8px',
-                    backgroundColor: '#334155',
-                    border: '1px solid #475569',
-                    color: 'white',
-                    fontSize: '16px'
-                  }}
-                />
-                <p style={{ fontSize: '12px', color: '#64748b', marginTop: '4px' }}>
-                  Обычно 0.7-0.95
-                </p>
-              </div>
-            </div>
-          </div>
+<div style={{ marginBottom: '24px' }}>
+  <h3 style={{ color: '#cbd5e1', marginBottom: '16px', fontSize: '18px' }}>
+    Параметры двигателя
+  </h3>
+  
+  {/* Мощность и напряжение в 2 колонки */}
+  <div style={{ 
+    display: 'grid', 
+    gridTemplateColumns: '1fr 1fr', 
+    gap: '16px', 
+    marginBottom: '16px' 
+  }}>
+    <div>
+      <label style={{ display: 'block', marginBottom: '8px', color: '#cbd5e1', fontSize: '14px' }}>
+        Мощность (кВт)
+      </label>
+      <input
+        type="number"
+        step="0.1"
+        value={motorPower}
+        onChange={(e) => setMotorPower(e.target.value)}
+        style={{
+          width: '100%',
+          padding: '12px',
+          borderRadius: '8px',
+          backgroundColor: '#334155',
+          border: '1px solid #475569',
+          color: 'white',
+          fontSize: '16px'
+        }}
+      />
+      <p style={{ fontSize: '12px', color: '#64748b', marginTop: '4px' }}>
+        0.25 - 5.5 кВт (бытовые)
+      </p>
+    </div>
+    
+    <div>
+      <label style={{ display: 'block', marginBottom: '8px', color: '#cbd5e1', fontSize: '14px' }}>
+        Напряжение сети (В)
+      </label>
+      <input
+        type="number"
+        value={voltage}
+        onChange={(e) => setVoltage(e.target.value)}
+        style={{
+          width: '100%',
+          padding: '12px',
+          borderRadius: '8px',
+          backgroundColor: '#334155',
+          border: '1px solid #475569',
+          color: 'white',
+          fontSize: '16px'
+        }}
+      />
+      <p style={{ fontSize: '12px', color: '#64748b', marginTop: '4px' }}>
+        220В (однофазные), 380В (трёхфазные)
+      </p>
+    </div>
+  </div>
+  
+  {/* Частота, КПД и cos φ в 2 колонки (на мобилке 1) */}
+  <div style={{ 
+    display: 'grid', 
+    gridTemplateColumns: 'repeat(2, 1fr)',
+    gap: '16px' 
+  }}>
+    <div>
+      <label style={{ display: 'block', marginBottom: '8px', color: '#cbd5e1', fontSize: '14px' }}>
+        Частота (Гц)
+      </label>
+      <input
+        type="number"
+        value={frequency}
+        onChange={(e) => setFrequency(e.target.value)}
+        style={{
+          width: '100%',
+          padding: '12px',
+          borderRadius: '8px',
+          backgroundColor: '#334155',
+          border: '1px solid #475569',
+          color: 'white',
+          fontSize: '16px'
+        }}
+      />
+      <p style={{ fontSize: '12px', color: '#64748b', marginTop: '4px' }}>
+        50 Гц (Россия), 60 Гц (США)
+      </p>
+    </div>
+    
+    <div>
+      <label style={{ display: 'block', marginBottom: '8px', color: '#cbd5e1', fontSize: '14px' }}>
+        КПД двигателя
+      </label>
+      <input
+        type="number"
+        step="0.01"
+        min="0.1"
+        max="1"
+        value={efficiency}
+        onChange={(e) => setEfficiency(e.target.value)}
+        style={{
+          width: '100%',
+          padding: '12px',
+          borderRadius: '8px',
+          backgroundColor: '#334155',
+          border: '1px solid #475569',
+          color: 'white',
+          fontSize: '16px'
+        }}
+      />
+      <p style={{ fontSize: '12px', color: '#64748b', marginTop: '4px' }}>
+        Обычно 0.7-0.9
+      </p>
+    </div>
+    
+    <div style={{ gridColumn: 'span 2' }}>
+      <label style={{ display: 'block', marginBottom: '8px', color: '#cbd5e1', fontSize: '14px' }}>
+        cos φ (коэф. мощности)
+      </label>
+      <input
+        type="number"
+        step="0.01"
+        min="0.1"
+        max="1"
+        value={powerFactor}
+        onChange={(e) => setPowerFactor(e.target.value)}
+        style={{
+          width: '100%',
+          padding: '12px',
+          borderRadius: '8px',
+          backgroundColor: '#334155',
+          border: '1px solid #475569',
+          color: 'white',
+          fontSize: '16px'
+        }}
+      />
+      <p style={{ fontSize: '12px', color: '#64748b', marginTop: '4px' }}>
+        Обычно 0.7-0.95
+      </p>
+    </div>
+  </div>
+</div>
 
           {/* РЕЗУЛЬТАТ */}
-          <div style={{
-            backgroundColor: '#0f172a',
-            borderRadius: '12px',
-            padding: '24px',
-            textAlign: 'center',
-            border: '1px solid #334155',
-            marginBottom: '20px'
-          }}>
-            {result ? (
-              <div style={{  }}>
-                {/* Основной результат */}
-                <div style={{ marginBottom: '24px' }}>
-                  <div style={{ fontSize: '36px', fontWeight: 'bold', color: '#f97316', marginBottom: '8px' }}>
-                    {capacitorType === 'start' ? result.recommendedStartCap :
-                     capacitorType === 'run' ? result.recommendedRunCap :
-                     `${result.recommendedStartCap.split(' (')[0]} + ${result.recommendedRunCap.split(' (')[0]}`}
-                  </div>
-                  <div style={{ color: '#94a3b8' }}>
-                    {capacitorType === 'start' ? 'Пусковой конденсатор' :
-                     capacitorType === 'run' ? 'Рабочий конденсатор' :
-                     'Пусковой + рабочий конденсаторы'}
-                  </div>
-                </div>
-                
-                {/* Дополнительная информация */}
-                <div style={{ 
-                  marginBottom: '20px',
-                  padding: '16px',
-                  backgroundColor: '#1e293b',
-                  borderRadius: '8px',
-                  textAlign: 'left'
-                }}>
-                  <div style={{ color: '#cbd5e1', fontSize: '14px', marginBottom: '12px' }}>
-                    {result.capacitorInfo}
-                  </div>
-                  
-                  <div style={{ color: '#cbd5e1', fontSize: '14px' }}>
-                    <div><strong>Ток двигателя:</strong> {result.motorCurrent.toFixed(1)} А</div>
-                    <div><strong>Реактивная мощность:</strong> {result.reactivePower.toFixed(2)} кВАр</div>
-                    {capacitorType === 'both' && (
-                      <>
-                        <div><strong>Пусковой:</strong> {result.startCapacitance.toFixed(0)} μF (расчётное)</div>
-                        <div><strong>Рабочий:</strong> {result.runCapacitance.toFixed(1)} μF (расчётное)</div>
-                      </>
-                    )}
-                  </div>
-                </div>
-                
-                {/* Кнопка копирования */}
-                <button 
-                  onClick={() => {
-                    const text = capacitorType === 'start' ? result.recommendedStartCap :
-                                capacitorType === 'run' ? result.recommendedRunCap :
-                                `Пусковой: ${result.recommendedStartCap}, Рабочий: ${result.recommendedRunCap}`;
-                    copyToClipboard(text);
-                  }}
-                  style={{
-                    padding: '12px 24px',
-                    backgroundColor: '#334155',
-                    border: '1px solid #475569',
-                    borderRadius: '8px',
-                    color: '#f97316',
-                    cursor: 'pointer',
-                    fontWeight: 'bold',
-                    fontSize: '16px',
-                    transition: 'all 0.3s ease',
-                    width: '100%'
-                  }}
-                >
-                  📋 Копировать результат
-                </button>
-              </div>
-            ) : (
-              <div style={{ padding: '40px 20px' }}>
-                <div style={{ fontSize: '48px', marginBottom: '20px', opacity: 0.5 }}>🌀</div>
-                <div style={{ color: '#94a3b8', fontSize: '18px', marginBottom: '12px' }}>
-                  Введите параметры двигателя
-                </div>
-                <div style={{ color: '#64748b', fontSize: '14px' }}>
-                  Укажите мощность, напряжение и другие параметры
-                </div>
-              </div>
-            )}
-          </div>
+<div style={{
+  backgroundColor: '#0f172a',
+  borderRadius: '12px',
+  padding: '24px',
+  textAlign: 'center',
+  border: '1px solid #334155',
+  marginBottom: '20px'
+}}>
+  {result ? (
+    <div style={{  }}>
+      {/* Основной результат */}
+      <div style={{ marginBottom: '24px' }}>
+        <div style={{ fontSize: '36px', fontWeight: 'bold', color: '#f97316', marginBottom: '8px' }}>
+          {capacitorType === 'start' ? result.recommendedStartCap.split(' (')[0] :
+           capacitorType === 'run' ? result.recommendedRunCap.split(' (')[0] :
+           `${result.recommendedStartCap.split(' (')[0]} + ${result.recommendedRunCap.split(' (')[0]}`}
+        </div>
+        <div style={{ color: '#94a3b8' }}>
+          {capacitorType === 'start' ? 'Пусковой конденсатор' :
+           capacitorType === 'run' ? 'Рабочий конденсатор' :
+           'Пусковой + рабочий конденсаторы'}
+        </div>
+      </div>
+      
+      {/* Дополнительная информация */}
+      <div style={{ 
+        marginBottom: '20px',
+        padding: '16px',
+        backgroundColor: '#1e293b',
+        borderRadius: '8px',
+        textAlign: 'left'
+      }}>
+        <div style={{ color: '#cbd5e1', fontSize: '14px', marginBottom: '12px' }}>
+          {capacitorType === 'start' ? (
+            <div><strong>🔋 Пусковой:</strong> {result.recommendedStartCap}</div>
+          ) : capacitorType === 'run' ? (
+            <div><strong>⚡ Рабочий:</strong> {result.recommendedRunCap}</div>
+          ) : (
+            <>
+              <div><strong>🔋 Пусковой:</strong> {result.recommendedStartCap}</div>
+              <div style={{ marginTop: '8px' }}><strong>⚡ Рабочий:</strong> {result.recommendedRunCap}</div>
+            </>
+          )}
+        </div>
+        
+        <div style={{ color: '#cbd5e1', fontSize: '14px' }}>
+          <div><strong>Ток двигателя:</strong> {result.motorCurrent.toFixed(1)} А</div>
+          <div><strong>Реактивная мощность:</strong> {result.reactivePower.toFixed(2)} кВАр</div>
+          {capacitorType === 'both' && (
+            <>
+              <div><strong>Пусковой (расчёт):</strong> {result.startCapacitance.toFixed(0)} μF</div>
+              <div><strong>Рабочий (расчёт):</strong> {result.runCapacitance.toFixed(1)} μF</div>
+            </>
+          )}
+        </div>
+      </div>
+      
+      {/* Кнопка копирования */}
+      <button 
+        onClick={() => {
+          const text = capacitorType === 'start' ? result.recommendedStartCap :
+                      capacitorType === 'run' ? result.recommendedRunCap :
+                      `Пусковой: ${result.recommendedStartCap}, Рабочий: ${result.recommendedRunCap}`;
+          copyToClipboard(text);
+        }}
+        style={{
+          padding: '12px 24px',
+          backgroundColor: '#334155',
+          border: '1px solid #475569',
+          borderRadius: '8px',
+          color: '#f97316',
+          cursor: 'pointer',
+          fontWeight: 'bold',
+          fontSize: '16px',
+          transition: 'all 0.3s ease',
+          width: '100%'
+        }}
+      >
+        📋 Копировать результат
+      </button>
+    </div>
+  ) : (
+    <div style={{ padding: '40px 20px' }}>
+      <div style={{ fontSize: '48px', marginBottom: '20px', opacity: 0.5 }}>🌀</div>
+      <div style={{ color: '#94a3b8', fontSize: '18px', marginBottom: '12px' }}>
+        Введите параметры двигателя
+      </div>
+      <div style={{ color: '#64748b', fontSize: '14px' }}>
+        Укажите мощность, напряжение и другие параметры
+      </div>
+    </div>
+  )}
+</div>
 
           {/* Формула */}
           <div style={{
@@ -550,85 +570,150 @@ export default function PuskovojKondensatorPage() {
         </div>
 
         {/* Объяснение */}
-        <div style={{
-          backgroundColor: '#1e293b',
-          borderRadius: '12px',
-          padding: '24px'
-        }}>
-          <h2 style={{ fontSize: '24px', marginBottom: '16px', color: '#f97316' }}>
-            Разница между пусковым и рабочим конденсатором
-          </h2>
-          
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '24px' }}>
-            <div style={{ backgroundColor: '#0f172a', padding: '16px', borderRadius: '8px' }}>
-              <h3 style={{ fontSize: '18px', color: '#f97316', marginBottom: '12px' }}>🔋 Пусковой конденсатор</h3>
-              <ul style={{ color: '#cbd5e1', fontSize: '14px', paddingLeft: '20px' }}>
-                <li><strong>Назначение:</strong> Только для запуска двигателя</li>
-                <li><strong>Время работы:</strong> 3-5 секунд, затем отключается</li>
-                <li><strong>Тип:</strong> Электролитический, полярный</li>
-                <li><strong>Напряжение:</strong> ≥ 1.5×U сети (например, 400В для 220В сети)</li>
-                <li><strong>Ёмкость:</strong> Большая (десятки-сотни μF)</li>
-                <li><strong>Когда использовать:</strong> Для тяжёлых пусков, компрессоров</li>
-              </ul>
-            </div>
-            
-            <div style={{ backgroundColor: '#0f172a', padding: '16px', borderRadius: '8px' }}>
-              <h3 style={{ fontSize: '18px', color: '#f97316', marginBottom: '12px' }}>⚡ Рабочий конденсатор</h3>
-              <ul style={{ color: '#cbd5e1', fontSize: '14px', paddingLeft: '20px' }}>
-                <li><strong>Назначение:</strong> Постоянно в цепи при работе</li>
-                <li><strong>Время работы:</strong> Постоянно, 24/7</li>
-                <li><strong>Тип:</strong> Плёнка, бумага, металлоплёночный</li>
-                <li><strong>Напряжение:</strong> ≥ 2×U сети (например, 450В для 220В сети)</li>
-                <li><strong>Ёмкость:</strong> Меньшая (единицы-десятки μF)</li>
-                <li><strong>Когда использовать:</strong> Вентиляторы, насосы, лёгкие пуски</li>
-              </ul>
-            </div>
-          </div>
-          
-          <h3 style={{ fontSize: '20px', marginBottom: '12px', color: '#f97316' }}>Типовые значения для бытовых двигателей</h3>
-          <div style={{ 
-            backgroundColor: '#0f172a', 
-            padding: '16px', 
-            borderRadius: '8px',
-            marginBottom: '20px'
-          }}>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '10px', textAlign: 'center' }}>
-              <div>
-                <div style={{ color: '#f97316', fontWeight: 'bold' }}>0.5 кВт</div>
-                <div style={{ color: '#94a3b8', fontSize: '14px' }}>50-80 μF</div>
-              </div>
-              <div>
-                <div style={{ color: '#f97316', fontWeight: 'bold' }}>1.1 кВт</div>
-                <div style={{ color: '#94a3b8', fontSize: '14px' }}>100-150 μF</div>
-              </div>
-              <div>
-                <div style={{ color: '#f97316', fontWeight: 'bold' }}>1.5 кВт</div>
-                <div style={{ color: '#94a3b8', fontSize: '14px' }}>150-200 μF</div>
-              </div>
-              <div>
-                <div style={{ color: '#f97316', fontWeight: 'bold' }}>2.2 кВт</div>
-                <div style={{ color: '#94a3b8', fontSize: '14px' }}>200-300 μF</div>
-              </div>
-            </div>
-          </div>
-          
-          <div style={{ 
-            marginTop: '20px',
-            padding: '16px',
-            backgroundColor: '#0f172a',
-            borderRadius: '8px',
-            borderLeft: '4px solid #f97316'
-          }}>
-            <h4 style={{ color: '#f97316', marginBottom: '8px' }}>⚠️ Важные предупреждения</h4>
-            <ul style={{ color: '#cbd5e1', fontSize: '14px', paddingLeft: '20px' }}>
-              <li><strong>Не превышайте расчётную ёмкость</strong> — может сгореть обмотка</li>
-              <li><strong>Проверяйте напряжение</strong> конденсатора — должно быть выше сетевого</li>
-              <li><strong>Для электролитических</strong> соблюдайте полярность (если указана)</li>
-              <li><strong>После отключения</strong> разряжайте конденсатор — опасное напряжение!</li>
-              <li><strong>При сомнениях</strong> проконсультируйтесь с электриком</li>
-            </ul>
-          </div>
-        </div>
+<div style={{
+  backgroundColor: '#1e293b',
+  borderRadius: '12px',
+  padding: '24px'
+}}>
+  <h2 style={{ fontSize: '24px', marginBottom: '16px', color: '#f97316' }}>
+    Разница между пусковым и рабочим конденсатором
+  </h2>
+  
+  <div style={{ 
+    display: 'flex', 
+    flexDirection: 'column', 
+    gap: '16px', 
+    marginBottom: '24px' 
+  }}>
+    {/* Пусковой конденсатор */}
+    <div style={{ 
+      backgroundColor: '#0f172a', 
+      padding: '16px', 
+      borderRadius: '8px',
+      borderLeft: '4px solid #f97316'
+    }}>
+      <h3 style={{ fontSize: '20px', color: '#f97316', marginBottom: '12px' }}>
+        🔋 Пусковой конденсатор
+      </h3>
+      <ul style={{ color: '#cbd5e1', fontSize: '15px', paddingLeft: '20px', margin: 0 }}>
+        <li style={{ marginBottom: '8px' }}>
+          <strong>Назначение:</strong> Только для запуска двигателя
+        </li>
+        <li style={{ marginBottom: '8px' }}>
+          <strong>Время работы:</strong> 3-5 секунд, затем отключается
+        </li>
+        <li style={{ marginBottom: '8px' }}>
+          <strong>Тип:</strong> Электролитический, полярный
+        </li>
+        <li style={{ marginBottom: '8px' }}>
+          <strong>Напряжение:</strong> ≥ 1.5×U сети (например, 400В для 220В)
+        </li>
+        <li style={{ marginBottom: '8px' }}>
+          <strong>Ёмкость:</strong> Большая (десятки-сотни μF)
+        </li>
+        <li>
+          <strong>Когда использовать:</strong> Тяжёлые пуски, компрессоры
+        </li>
+      </ul>
+    </div>
+    
+    {/* Рабочий конденсатор */}
+    <div style={{ 
+      backgroundColor: '#0f172a', 
+      padding: '16px', 
+      borderRadius: '8px',
+      borderLeft: '4px solid #f59e0b'
+    }}>
+      <h3 style={{ fontSize: '20px', color: '#f59e0b', marginBottom: '12px' }}>
+        ⚡ Рабочий конденсатор
+      </h3>
+      <ul style={{ color: '#cbd5e1', fontSize: '15px', paddingLeft: '20px', margin: 0 }}>
+        <li style={{ marginBottom: '8px' }}>
+          <strong>Назначение:</strong> Постоянно в цепи при работе
+        </li>
+        <li style={{ marginBottom: '8px' }}>
+          <strong>Время работы:</strong> Постоянно, 24/7
+        </li>
+        <li style={{ marginBottom: '8px' }}>
+          <strong>Тип:</strong> Плёнка, бумага, металлоплёночный
+        </li>
+        <li style={{ marginBottom: '8px' }}>
+          <strong>Напряжение:</strong> ≥ 2×U сети (например, 450В для 220В)
+        </li>
+        <li style={{ marginBottom: '8px' }}>
+          <strong>Ёмкость:</strong> Меньшая (единицы-десятки μF)
+        </li>
+        <li>
+          <strong>Когда использовать:</strong> Вентиляторы, насосы
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <h3 style={{ fontSize: '20px', marginBottom: '12px', color: '#f97316' }}>
+    Типовые значения для бытовых двигателей
+  </h3>
+  
+  <div style={{ 
+    backgroundColor: '#0f172a', 
+    padding: '16px', 
+    borderRadius: '8px',
+    marginBottom: '20px',
+    overflowX: 'auto'
+  }}>
+    <div style={{ 
+      display: 'grid', 
+      gridTemplateColumns: 'repeat(4, 1fr)', 
+      gap: '10px', 
+      textAlign: 'center',
+      minWidth: '300px'
+    }}>
+      <div>
+        <div style={{ color: '#f97316', fontWeight: 'bold' }}>0.5 кВт</div>
+        <div style={{ color: '#94a3b8', fontSize: '14px' }}>50-80 μF</div>
+      </div>
+      <div>
+        <div style={{ color: '#f97316', fontWeight: 'bold' }}>1.1 кВт</div>
+        <div style={{ color: '#94a3b8', fontSize: '14px' }}>100-150 μF</div>
+      </div>
+      <div>
+        <div style={{ color: '#f97316', fontWeight: 'bold' }}>1.5 кВт</div>
+        <div style={{ color: '#94a3b8', fontSize: '14px' }}>150-200 μF</div>
+      </div>
+      <div>
+        <div style={{ color: '#f97316', fontWeight: 'bold' }}>2.2 кВт</div>
+        <div style={{ color: '#94a3b8', fontSize: '14px' }}>200-300 μF</div>
+      </div>
+    </div>
+  </div>
+  
+  <div style={{ 
+    marginTop: '20px',
+    padding: '16px',
+    backgroundColor: '#0f172a',
+    borderRadius: '8px',
+    borderLeft: '4px solid #f97316'
+  }}>
+    <h4 style={{ color: '#f97316', marginBottom: '8px' }}>⚠️ Важные предупреждения</h4>
+    <ul style={{ color: '#cbd5e1', fontSize: '14px', paddingLeft: '20px', margin: 0 }}>
+      <li style={{ marginBottom: '6px' }}>
+        <strong>Не превышайте расчётную ёмкость</strong> — может сгореть обмотка
+      </li>
+      <li style={{ marginBottom: '6px' }}>
+        <strong>Проверяйте напряжение</strong> конденсатора — выше сетевого
+      </li>
+      <li style={{ marginBottom: '6px' }}>
+        <strong>Для электролитических</strong> соблюдайте полярность
+      </li>
+      <li style={{ marginBottom: '6px' }}>
+        <strong>После отключения</strong> разряжайте конденсатор
+      </li>
+      <li>
+        <strong>При сомнениях</strong> проконсультируйтесь с электриком
+      </li>
+    </ul>
+  </div>
+</div>
       </div>
     </div>
   );

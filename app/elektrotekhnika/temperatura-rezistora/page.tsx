@@ -73,7 +73,6 @@ export default function TemperaturaRezistoraPage() {
     { value: '0.5', label: '1/2 Вт', desc: 'Средние' },
     { value: '1', label: '1 Вт', desc: 'Мощные' },
     { value: '2', label: '2 Вт', desc: 'Силовые' },
-    { value: '5', label: '5 Вт', desc: 'Высокомощные' },
   ];
 
   // Типовые температуры
@@ -335,105 +334,142 @@ export default function TemperaturaRezistoraPage() {
           </div>
 
           {/* Выбор режима */}
-          <div style={{ marginBottom: '24px' }}>
-            <h3 style={{ color: '#cbd5e1', marginBottom: '12px', fontSize: '18px' }}>
-              Режим расчета
-            </h3>
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: '1fr 1fr 1fr',
-              gap: '12px',
-              marginBottom: '20px'
-            }}>
-              <button
-                type="button"
-                onClick={() => setMode('temperature')}
-                style={{
-                  padding: '12px',
-                  backgroundColor: mode === 'temperature' ? '#10b981' : '#334155',
-                  color: 'white',
-                  border: `2px solid ${mode === 'temperature' ? '#10b981' : '#475569'}`,
-                  borderRadius: '8px',
-                  cursor: 'pointer',
-                  fontWeight: 'bold',
-                  textAlign: 'center',
-                  fontSize: '14px'
-                }}
-              >
-                🌡️ По мощности
-              </button>
-              
-              <button
-                type="button"
-                onClick={() => setMode('resistance')}
-                style={{
-                  padding: '12px',
-                  backgroundColor: mode === 'resistance' ? '#10b981' : '#334155',
-                  color: 'white',
-                  border: `2px solid ${mode === 'resistance' ? '#10b981' : '#475569'}`,
-                  borderRadius: '8px',
-                  cursor: 'pointer',
-                  fontWeight: 'bold',
-                  textAlign: 'center',
-                  fontSize: '14px'
-                }}
-              >
-                🔌 По току/напряжению
-              </button>
-              
-              <button
-                type="button"
-                onClick={() => setMode('power')}
-                style={{
-                  padding: '12px',
-                  backgroundColor: mode === 'power' ? '#10b981' : '#334155',
-                  color: 'white',
-                  border: `2px solid ${mode === 'power' ? '#10b981' : '#475569'}`,
-                  borderRadius: '8px',
-                  cursor: 'pointer',
-                  fontWeight: 'bold',
-                  textAlign: 'center',
-                  fontSize: '14px'
-                }}
-              >
-                ⚡ Макс. мощность
-              </button>
-            </div>
-          </div>
+<div style={{ marginBottom: '24px' }}>
+  <h3 style={{ color: '#cbd5e1', marginBottom: '12px', fontSize: '18px' }}>
+    Режим расчета
+  </h3>
+  <div style={{
+    display: 'grid',
+    gridTemplateColumns: 'repeat(3, 1fr)',
+    gap: '8px',
+    marginBottom: '20px',
+    width: '100%'
+  }}>
+    <button
+      type="button"
+      onClick={() => setMode('temperature')}
+      style={{
+        padding: '12px 4px',
+        backgroundColor: mode === 'temperature' ? '#10b981' : '#334155',
+        color: 'white',
+        border: `2px solid ${mode === 'temperature' ? '#10b981' : '#475569'}`,
+        borderRadius: '8px',
+        cursor: 'pointer',
+        fontWeight: 'bold',
+        textAlign: 'center',
+        fontSize: 'clamp(12px, 2.5vw, 14px)',
+        whiteSpace: 'normal',
+        wordBreak: 'break-word',
+        lineHeight: '1.3',
+        minHeight: '60px',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center'
+      }}
+    >
+      <div style={{ fontSize: 'clamp(14px, 3vw, 16px)', fontWeight: 'bold' }}>🌡️ По мощности</div>
+      <div style={{ fontSize: 'clamp(10px, 2vw, 12px)', opacity: 0.8, marginTop: '2px' }}>температура</div>
+    </button>
+    
+    <button
+      type="button"
+      onClick={() => setMode('resistance')}
+      style={{
+        padding: '12px 4px',
+        backgroundColor: mode === 'resistance' ? '#10b981' : '#334155',
+        color: 'white',
+        border: `2px solid ${mode === 'resistance' ? '#10b981' : '#475569'}`,
+        borderRadius: '8px',
+        cursor: 'pointer',
+        fontWeight: 'bold',
+        textAlign: 'center',
+        fontSize: 'clamp(12px, 2.5vw, 14px)',
+        whiteSpace: 'normal',
+        wordBreak: 'break-word',
+        lineHeight: '1.3',
+        minHeight: '60px',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center'
+      }}
+    >
+      <div style={{ fontSize: 'clamp(14px, 3vw, 16px)', fontWeight: 'bold' }}>🔌 По току/</div>
+      <div style={{ fontSize: 'clamp(10px, 2vw, 12px)', opacity: 0.8, marginTop: '2px' }}>напряжению</div>
+    </button>
+    
+    <button
+      type="button"
+      onClick={() => setMode('power')}
+      style={{
+        padding: '12px 4px',
+        backgroundColor: mode === 'power' ? '#10b981' : '#334155',
+        color: 'white',
+        border: `2px solid ${mode === 'power' ? '#10b981' : '#475569'}`,
+        borderRadius: '8px',
+        cursor: 'pointer',
+        fontWeight: 'bold',
+        textAlign: 'center',
+        fontSize: 'clamp(12px, 2.5vw, 14px)',
+        whiteSpace: 'normal',
+        wordBreak: 'break-word',
+        lineHeight: '1.3',
+        minHeight: '60px',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center'
+      }}
+    >
+      <div style={{ fontSize: 'clamp(14px, 3vw, 16px)', fontWeight: 'bold' }}>⚡ Макс.</div>
+      <div style={{ fontSize: 'clamp(10px, 2vw, 12px)', opacity: 0.8, marginTop: '2px' }}>мощность</div>
+    </button>
+  </div>
+</div>
 
           {/* Выбор типа резистора */}
-          <div style={{ marginBottom: '24px' }}>
-            <h3 style={{ color: '#cbd5e1', marginBottom: '12px', fontSize: '18px' }}>
-              Тип резистора
-            </h3>
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(3, 1fr)',
-              gap: '8px',
-              marginBottom: '20px'
-            }}>
-              {Object.entries(resistorTypes).map(([key, resistor]) => (
-                <button
-                  key={key}
-                  type="button"
-                  onClick={() => selectResistorType(key)}
-                  style={{
-                    padding: '10px 6px',
-                    backgroundColor: resistorType === key ? resistor.color : '#334155',
-                    color: 'white',
-                    border: `2px solid ${resistorType === key ? resistor.color : '#475569'}`,
-                    borderRadius: '8px',
-                    cursor: 'pointer',
-                    fontWeight: 'bold',
-                    textAlign: 'center',
-                    fontSize: '12px'
-                  }}
-                >
-                  {resistor.name}
-                </button>
-              ))}
-            </div>
-          </div>
+<div style={{ marginBottom: '24px' }}>
+  <h3 style={{ color: '#cbd5e1', marginBottom: '12px', fontSize: '18px' }}>
+    Тип резистора
+  </h3>
+  <div style={{
+    display: 'grid',
+    gridTemplateColumns: 'repeat(2, 1fr)',
+    gap: '8px',
+    marginBottom: '20px',
+    width: '100%'
+  }}>
+    {Object.entries(resistorTypes).map(([key, resistor]) => (
+      <button
+        key={key}
+        type="button"
+        onClick={() => selectResistorType(key)}
+        style={{
+          padding: '12px 8px',
+          backgroundColor: resistorType === key ? resistor.color : '#334155',
+          color: 'white',
+          border: `2px solid ${resistorType === key ? resistor.color : '#475569'}`,
+          borderRadius: '8px',
+          cursor: 'pointer',
+          fontWeight: 'bold',
+          textAlign: 'center',
+          fontSize: 'clamp(12px, 2.5vw, 14px)',
+          transition: 'all 0.3s',
+          whiteSpace: 'normal',
+          wordBreak: 'break-word',
+          lineHeight: '1.3',
+          minHeight: '50px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center'
+        }}
+      >
+        {resistor.name}
+      </button>
+    ))}
+  </div>
+</div>
 
           {/* Размер SMD (для SMD резисторов) */}
           <div style={{ marginBottom: '24px' }}>

@@ -389,38 +389,49 @@ export default function ParallelnyeRezistoryPage() {
           </div>
 
           {/* Быстрый выбор типовых значений */}
-          <div style={{ marginBottom: '24px' }}>
-            <h3 style={{ color: '#cbd5e1', marginBottom: '12px', fontSize: '18px' }}>
-              Быстрый выбор
-            </h3>
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(4, 1fr)',
-              gap: '12px',
-              marginBottom: '20px'
-            }}>
-              {typicalValues.map((item) => (
-                <button
-                  key={item.value}
-                  type="button"
-                  onClick={() => selectTypicalValue(item.value)}
-                  style={{
-                    padding: '12px 8px',
-                    backgroundColor: '#334155',
-                    color: 'white',
-                    border: '2px solid #475569',
-                    borderRadius: '8px',
-                    cursor: 'pointer',
-                    fontWeight: 'bold',
-                    textAlign: 'center'
-                  }}
-                >
-                  <div style={{ fontSize: '18px', marginBottom: '4px' }}>{item.label}</div>
-                  <div style={{ fontSize: '11px', opacity: 0.8 }}>{item.desc}</div>
-                </button>
-              ))}
-            </div>
-          </div>
+<div style={{ marginBottom: '24px' }}>
+  <h3 style={{ color: '#cbd5e1', marginBottom: '12px', fontSize: '18px' }}>
+    Быстрый выбор
+  </h3>
+  <div style={{
+    display: 'grid',
+    gridTemplateColumns: 'repeat(4, 1fr)',
+    gap: '8px',
+    marginBottom: '20px',
+    width: '100%'
+  }}>
+    {typicalValues.map((item) => (
+      <button
+        key={item.value}
+        type="button"
+        onClick={() => selectTypicalValue(item.value)}
+        style={{
+          padding: '12px 4px',
+          backgroundColor: '#334155',
+          color: 'white',
+          border: '2px solid #475569',
+          borderRadius: '8px',
+          cursor: 'pointer',
+          fontWeight: 'bold',
+          textAlign: 'center',
+          fontSize: 'clamp(12px, 3vw, 18px)',
+          transition: 'all 0.3s',
+          whiteSpace: 'normal',
+          wordBreak: 'break-word',
+          lineHeight: '1.3',
+          minHeight: '60px',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center'
+        }}
+      >
+        <div style={{ fontSize: 'clamp(14px, 3.5vw, 18px)', marginBottom: '4px' }}>{item.label}</div>
+        <div style={{ fontSize: 'clamp(10px, 2.5vw, 12px)', opacity: 0.8 }}>{item.desc}</div>
+      </button>
+    ))}
+  </div>
+</div>
 
           {/* Поля ввода для простого режима */}
           {mode === 'simple' ? (

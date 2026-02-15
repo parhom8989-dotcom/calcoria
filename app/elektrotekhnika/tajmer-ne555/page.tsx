@@ -326,57 +326,72 @@ export default function TajmerNE555Page() {
             </button>
           </div>
 
-          {/* Выбор режима */}
-          <div style={{ marginBottom: '24px' }}>
-            <h3 style={{ color: '#9ca3af', marginBottom: '12px', fontSize: '18px' }}>
-              Режим работы
-            </h3>
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: '1fr 1fr',
-              gap: '12px',
-              marginBottom: '20px'
-            }}>
-              <button
-                type="button"
-                onClick={() => setMode('monostable')}
-                style={{
-                  padding: '16px',
-                  backgroundColor: mode === 'monostable' ? '#4b5563' : '#374151',
-                  color: 'white',
-                  border: `2px solid ${mode === 'monostable' ? '#9ca3af' : '#4b5563'}`,
-                  borderRadius: '12px',
-                  cursor: 'pointer',
-                  fontWeight: 'bold',
-                  fontSize: '16px'
-                }}
-              >
-                🎯 Моностабильный
-              </button>
-              
-              <button
-                type="button"
-                onClick={() => setMode('astable')}
-                style={{
-                  padding: '16px',
-                  backgroundColor: mode === 'astable' ? '#4b5563' : '#374151',
-                  color: 'white',
-                  border: `2px solid ${mode === 'astable' ? '#9ca3af' : '#4b5563'}`,
-                  borderRadius: '12px',
-                  cursor: 'pointer',
-                  fontWeight: 'bold',
-                  fontSize: '16px'
-                }}
-              >
-                🔄 Астабильный
-              </button>
-            </div>
-            <div style={{ color: '#6b7280', fontSize: '14px' }}>
-              {mode === 'monostable' 
-                ? 'Один импульс заданной длительности при срабатывании триггера' 
-                : 'Непрерывные импульсы с заданной частотой и скважностью'}
-            </div>
-          </div>
+         {/* Выбор режима */}
+<div style={{ marginBottom: '24px' }}>
+  <h3 style={{ color: '#9ca3af', marginBottom: '12px', fontSize: '18px' }}>
+    Режим работы
+  </h3>
+  <div style={{
+    display: 'grid',
+    gridTemplateColumns: '1fr 1fr',
+    gap: '12px',
+    marginBottom: '20px',
+    width: '100%'
+  }}>
+    <button
+      type="button"
+      onClick={() => setMode('monostable')}
+      style={{
+        padding: '14px 8px',
+        backgroundColor: mode === 'monostable' ? '#4b5563' : '#374151',
+        color: 'white',
+        border: `2px solid ${mode === 'monostable' ? '#9ca3af' : '#4b5563'}`,
+        borderRadius: '12px',
+        cursor: 'pointer',
+        fontWeight: 'bold',
+        fontSize: 'clamp(14px, 3vw, 16px)',
+        whiteSpace: 'normal',
+        wordBreak: 'break-word',
+        lineHeight: '1.3',
+        minHeight: '60px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center'
+      }}
+    >
+      🎯 Моностабильный
+    </button>
+    
+    <button
+      type="button"
+      onClick={() => setMode('astable')}
+      style={{
+        padding: '14px 8px',
+        backgroundColor: mode === 'astable' ? '#4b5563' : '#374151',
+        color: 'white',
+        border: `2px solid ${mode === 'astable' ? '#9ca3af' : '#4b5563'}`,
+        borderRadius: '12px',
+        cursor: 'pointer',
+        fontWeight: 'bold',
+        fontSize: 'clamp(14px, 3vw, 16px)',
+        whiteSpace: 'normal',
+        wordBreak: 'break-word',
+        lineHeight: '1.3',
+        minHeight: '60px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center'
+      }}
+    >
+      🔄 Астабильный
+    </button>
+  </div>
+  <div style={{ color: '#6b7280', fontSize: '14px' }}>
+    {mode === 'monostable' 
+      ? 'Один импульс заданной длительности при срабатывании триггера' 
+      : 'Непрерывные импульсы с заданной частотой и скважностью'}
+  </div>
+</div>
 
           {/* Быстрый выбор частоты (только для астабильного) */}
           {mode === 'astable' && (
@@ -567,7 +582,7 @@ export default function TajmerNE555Page() {
                     value={r1}
                     onChange={(e) => setR1(e.target.value)}
                     style={{
-                      width: '100%',
+                      width: '90%',
                       padding: '12px',
                       borderRadius: '8px',
                       backgroundColor: '#374151',
@@ -592,7 +607,7 @@ export default function TajmerNE555Page() {
                     value={r2}
                     onChange={(e) => setR2(e.target.value)}
                     style={{
-                      width: '100%',
+                      width: '90%',
                       padding: '12px',
                       borderRadius: '8px',
                       backgroundColor: '#374151',
@@ -617,7 +632,7 @@ export default function TajmerNE555Page() {
                     value={capacitanceAstable}
                     onChange={(e) => setCapacitanceAstable(e.target.value)}
                     style={{
-                      width: '100%',
+                      width: '90%',
                       padding: '12px',
                       borderRadius: '8px',
                       backgroundColor: '#374151',
@@ -660,93 +675,93 @@ export default function TajmerNE555Page() {
                   </div>
                   
                   {/* Детали в зависимости от режима */}
-                  {mode === 'monostable' ? (
-                    <div style={{ 
-                      display: 'grid', 
-                      gridTemplateColumns: '1fr 1fr', 
-                      gap: '16px',
-                      marginBottom: '20px'
-                    }}>
-                      <div style={{ 
-                        backgroundColor: '#1f2937', 
-                        padding: '16px', 
-                        borderRadius: '8px',
-                        textAlign: 'center'
-                      }}>
-                        <div style={{ fontSize: '20px', fontWeight: 'bold', color: '#9ca3af', marginBottom: '4px' }}>
-                          {formatFrequency(result.frequency)}
-                        </div>
-                        <div style={{ fontSize: '12px', color: '#6b7280' }}>Частота (1/T)</div>
-                      </div>
-                      
-                      <div style={{ 
-                        backgroundColor: '#1f2937', 
-                        padding: '16px', 
-                        borderRadius: '8px',
-                        textAlign: 'center'
-                      }}>
-                        <div style={{ fontSize: '20px', fontWeight: 'bold', color: '#9ca3af', marginBottom: '4px' }}>
-                          {formatTime(result.period)}
-                        </div>
-                        <div style={{ fontSize: '12px', color: '#6b7280' }}>Период</div>
-                      </div>
-                    </div>
-                  ) : (
-                    <div style={{ 
-                      display: 'grid', 
-                      gridTemplateColumns: 'repeat(4, 1fr)', 
-                      gap: '12px',
-                      marginBottom: '20px'
-                    }}>
-                      <div style={{ 
-                        backgroundColor: '#1f2937', 
-                        padding: '12px', 
-                        borderRadius: '8px',
-                        textAlign: 'center'
-                      }}>
-                        <div style={{ fontSize: '16px', fontWeight: 'bold', color: '#9ca3af', marginBottom: '4px' }}>
-                          {formatTime(result.highTime)}
-                        </div>
-                        <div style={{ fontSize: '11px', color: '#6b7280' }}>Высокий уровень</div>
-                      </div>
-                      
-                      <div style={{ 
-                        backgroundColor: '#1f2937', 
-                        padding: '12px', 
-                        borderRadius: '8px',
-                        textAlign: 'center'
-                      }}>
-                        <div style={{ fontSize: '16px', fontWeight: 'bold', color: '#9ca3af', marginBottom: '4px' }}>
-                          {formatTime(result.lowTime)}
-                        </div>
-                        <div style={{ fontSize: '11px', color: '#6b7280' }}>Низкий уровень</div>
-                      </div>
-                      
-                      <div style={{ 
-                        backgroundColor: '#1f2937', 
-                        padding: '12px', 
-                        borderRadius: '8px',
-                        textAlign: 'center'
-                      }}>
-                        <div style={{ fontSize: '16px', fontWeight: 'bold', color: '#9ca3af', marginBottom: '4px' }}>
-                          {formatTime(result.period)}
-                        </div>
-                        <div style={{ fontSize: '11px', color: '#6b7280' }}>Период</div>
-                      </div>
-                      
-                      <div style={{ 
-                        backgroundColor: '#1f2937', 
-                        padding: '12px', 
-                        borderRadius: '8px',
-                        textAlign: 'center'
-                      }}>
-                        <div style={{ fontSize: '16px', fontWeight: 'bold', color: '#9ca3af', marginBottom: '4px' }}>
-                          {result.dutyCycle.toFixed(1)}%
-                        </div>
-                        <div style={{ fontSize: '11px', color: '#6b7280' }}>Заполнение</div>
-                      </div>
-                    </div>
-                  )}
+{mode === 'monostable' ? (
+  <div style={{ 
+    display: 'grid', 
+    gridTemplateColumns: '1fr 1fr', 
+    gap: '16px',
+    marginBottom: '20px'
+  }}>
+    <div style={{ 
+      backgroundColor: '#1f2937', 
+      padding: '16px', 
+      borderRadius: '8px',
+      textAlign: 'center'
+    }}>
+      <div style={{ fontSize: '20px', fontWeight: 'bold', color: '#9ca3af', marginBottom: '4px' }}>
+        {formatFrequency(result.frequency)}
+      </div>
+      <div style={{ fontSize: '12px', color: '#6b7280' }}>Частота (1/T)</div>
+    </div>
+    
+    <div style={{ 
+      backgroundColor: '#1f2937', 
+      padding: '16px', 
+      borderRadius: '8px',
+      textAlign: 'center'
+    }}>
+      <div style={{ fontSize: '20px', fontWeight: 'bold', color: '#9ca3af', marginBottom: '4px' }}>
+        {formatTime(result.period)}
+      </div>
+      <div style={{ fontSize: '12px', color: '#6b7280' }}>Период</div>
+    </div>
+  </div>
+) : (
+  <div style={{ 
+    display: 'grid', 
+    gridTemplateColumns: 'repeat(2, 1fr)', 
+    gap: '12px',
+    marginBottom: '20px'
+  }}>
+    <div style={{ 
+      backgroundColor: '#1f2937', 
+      padding: '16px', 
+      borderRadius: '8px',
+      textAlign: 'center'
+    }}>
+      <div style={{ fontSize: '18px', fontWeight: 'bold', color: '#9ca3af', marginBottom: '4px' }}>
+        {formatTime(result.highTime)}
+      </div>
+      <div style={{ fontSize: '12px', color: '#6b7280' }}>Высокий уровень</div>
+    </div>
+    
+    <div style={{ 
+      backgroundColor: '#1f2937', 
+      padding: '16px', 
+      borderRadius: '8px',
+      textAlign: 'center'
+    }}>
+      <div style={{ fontSize: '18px', fontWeight: 'bold', color: '#9ca3af', marginBottom: '4px' }}>
+        {formatTime(result.lowTime)}
+      </div>
+      <div style={{ fontSize: '12px', color: '#6b7280' }}>Низкий уровень</div>
+    </div>
+    
+    <div style={{ 
+      backgroundColor: '#1f2937', 
+      padding: '16px', 
+      borderRadius: '8px',
+      textAlign: 'center'
+    }}>
+      <div style={{ fontSize: '18px', fontWeight: 'bold', color: '#9ca3af', marginBottom: '4px' }}>
+        {formatTime(result.period)}
+      </div>
+      <div style={{ fontSize: '12px', color: '#6b7280' }}>Период</div>
+    </div>
+    
+    <div style={{ 
+      backgroundColor: '#1f2937', 
+      padding: '16px', 
+      borderRadius: '8px',
+      textAlign: 'center'
+    }}>
+      <div style={{ fontSize: '18px', fontWeight: 'bold', color: '#9ca3af', marginBottom: '4px' }}>
+        {result.dutyCycle.toFixed(1)}%
+      </div>
+      <div style={{ fontSize: '12px', color: '#6b7280' }}>Заполнение</div>
+    </div>
+  </div>
+)}
                   
                   {/* Формулы */}
                   <div style={{ 

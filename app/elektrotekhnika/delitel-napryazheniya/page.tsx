@@ -417,65 +417,99 @@ export default function DelitelNapryazheniyaPage() {
           </div>
 
           {/* Выбор режима */}
-          <div style={{ marginBottom: '24px' }}>
-            <h3 style={{ color: '#cbd5e1', marginBottom: '12px', fontSize: '18px' }}>
-              Что нужно рассчитать?
-            </h3>
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(3, 1fr)',
-              gap: '10px',
-              marginBottom: '20px'
-            }}>
-              <button
-                onClick={() => setCalculationMode('vout')}
-                style={{
-                  padding: '14px',
-                  backgroundColor: calculationMode === 'vout' ? '#8b5cf6' : '#334155',
-                  color: 'white',
-                  border: `2px solid ${calculationMode === 'vout' ? '#8b5cf6' : '#475569'}`,
-                  borderRadius: '8px',
-                  cursor: 'pointer',
-                  fontWeight: 'bold',
-                  fontSize: '16px'
-                }}
-              >
-                Выходное напряжение
-              </button>
-              
-              <button
-                onClick={() => setCalculationMode('r1')}
-                style={{
-                  padding: '14px',
-                  backgroundColor: calculationMode === 'r1' ? '#8b5cf6' : '#334155',
-                  color: 'white',
-                  border: `2px solid ${calculationMode === 'r1' ? '#8b5cf6' : '#475569'}`,
-                  borderRadius: '8px',
-                  cursor: 'pointer',
-                  fontWeight: 'bold',
-                  fontSize: '16px'
-                }}
-              >
-                Резистор R1
-              </button>
-              
-              <button
-                onClick={() => setCalculationMode('r2')}
-                style={{
-                  padding: '14px',
-                  backgroundColor: calculationMode === 'r2' ? '#8b5cf6' : '#334155',
-                  color: 'white',
-                  border: `2px solid ${calculationMode === 'r2' ? '#8b5cf6' : '#475569'}`,
-                  borderRadius: '8px',
-                  cursor: 'pointer',
-                  fontWeight: 'bold',
-                  fontSize: '16px'
-                }}
-              >
-                Резистор R2
-              </button>
-            </div>
-          </div>
+<div style={{ marginBottom: '24px' }}>
+  <h3 style={{ color: '#cbd5e1', marginBottom: '12px', fontSize: '18px' }}>
+    Что нужно рассчитать?
+  </h3>
+  <div style={{
+    display: 'grid',
+    gridTemplateColumns: 'repeat(3, 1fr)',
+    gap: '8px',
+    marginBottom: '20px',
+    width: '100%'
+  }}>
+    <button
+      onClick={() => setCalculationMode('vout')}
+      style={{
+        padding: '12px 4px',
+        backgroundColor: calculationMode === 'vout' ? '#8b5cf6' : '#334155',
+        color: 'white',
+        border: `2px solid ${calculationMode === 'vout' ? '#8b5cf6' : '#475569'}`,
+        borderRadius: '8px',
+        cursor: 'pointer',
+        fontWeight: 'bold',
+        fontSize: 'clamp(12px, 2.5vw, 16px)',
+        textAlign: 'center',
+        transition: 'all 0.3s',
+        whiteSpace: 'normal',
+        wordBreak: 'break-word',
+        lineHeight: '1.3',
+        minHeight: '60px',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center'
+      }}
+    >
+      <div>Выходное</div>
+      <div style={{ fontSize: 'clamp(10px, 2vw, 14px)', opacity: 0.9 }}>напряжение</div>
+    </button>
+    
+    <button
+      onClick={() => setCalculationMode('r1')}
+      style={{
+        padding: '12px 4px',
+        backgroundColor: calculationMode === 'r1' ? '#8b5cf6' : '#334155',
+        color: 'white',
+        border: `2px solid ${calculationMode === 'r1' ? '#8b5cf6' : '#475569'}`,
+        borderRadius: '8px',
+        cursor: 'pointer',
+        fontWeight: 'bold',
+        fontSize: 'clamp(12px, 2.5vw, 16px)',
+        textAlign: 'center',
+        transition: 'all 0.3s',
+        whiteSpace: 'normal',
+        wordBreak: 'break-word',
+        lineHeight: '1.3',
+        minHeight: '60px',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center'
+      }}
+    >
+      <div>Резистор</div>
+      <div style={{ fontSize: 'clamp(10px, 2vw, 14px)', opacity: 0.9 }}>R1</div>
+    </button>
+    
+    <button
+      onClick={() => setCalculationMode('r2')}
+      style={{
+        padding: '12px 4px',
+        backgroundColor: calculationMode === 'r2' ? '#8b5cf6' : '#334155',
+        color: 'white',
+        border: `2px solid ${calculationMode === 'r2' ? '#8b5cf6' : '#475569'}`,
+        borderRadius: '8px',
+        cursor: 'pointer',
+        fontWeight: 'bold',
+        fontSize: 'clamp(12px, 2.5vw, 16px)',
+        textAlign: 'center',
+        transition: 'all 0.3s',
+        whiteSpace: 'normal',
+        wordBreak: 'break-word',
+        lineHeight: '1.3',
+        minHeight: '60px',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center'
+      }}
+    >
+      <div>Резистор</div>
+      <div style={{ fontSize: 'clamp(10px, 2vw, 14px)', opacity: 0.9 }}>R2</div>
+    </button>
+  </div>
+</div>
 
           {/* Параметры */}
           <div style={{ marginBottom: '24px' }}>

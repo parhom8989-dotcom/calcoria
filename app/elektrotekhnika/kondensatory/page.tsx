@@ -361,7 +361,7 @@ export default function KondensatoryPage() {
                 type="button"
                 onClick={() => setMode('many')}
                 style={{
-                  padding: '12px',
+                  padding: '10px',
                   backgroundColor: mode === 'many' ? '#8b5cf6' : '#334155',
                   color: 'white',
                   border: `2px solid ${mode === 'many' ? '#8b5cf6' : '#475569'}`,
@@ -473,7 +473,7 @@ export default function KondensatoryPage() {
                     value={c1}
                     onChange={(e) => setC1(e.target.value)}
                     style={{
-                      width: '100%',
+                      width: '80%',
                       padding: '12px',
                       borderRadius: '8px',
                       backgroundColor: '#334155',
@@ -495,7 +495,7 @@ export default function KondensatoryPage() {
                     value={c2}
                     onChange={(e) => setC2(e.target.value)}
                     style={{
-                      width: '100%',
+                      width: '80%',
                       padding: '12px',
                       borderRadius: '8px',
                       backgroundColor: '#334155',
@@ -566,7 +566,7 @@ export default function KondensatoryPage() {
                     value={c3}
                     onChange={(e) => setC3(e.target.value)}
                     style={{
-                      width: '100%',
+                      width: '70%',
                       padding: '12px',
                       borderRadius: '8px',
                       backgroundColor: '#334155',
@@ -590,7 +590,7 @@ export default function KondensatoryPage() {
                   value={capacitorList}
                   onChange={(e) => setCapacitorList(e.target.value)}
                   style={{
-                    width: '100%',
+                    width: '95%',
                     height: '80px',
                     padding: '12px',
                     borderRadius: '8px',
@@ -611,62 +611,75 @@ export default function KondensatoryPage() {
           </div>
 
           {/* Дополнительные параметры */}
-          <div style={{ 
-            marginBottom: '24px',
-            padding: '16px',
-            backgroundColor: '#0f172a',
-            borderRadius: '8px'
-          }}>
-            <h3 style={{ color: '#8b5cf6', marginBottom: '16px', fontSize: '18px' }}>
-              ⚡ Дополнительные параметры
-            </h3>
-            
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
-              <div>
-                <label style={{ display: 'block', marginBottom: '8px', color: '#cbd5e1' }}>
-                  Общее напряжение (В)
-                </label>
-                <input
-                  type="number"
-                  step="0.1"
-                  value={voltage}
-                  onChange={(e) => setVoltage(e.target.value)}
-                  style={{
-                    width: '100%',
-                    padding: '12px',
-                    borderRadius: '8px',
-                    backgroundColor: '#334155',
-                    border: '1px solid #475569',
-                    color: 'white',
-                    fontSize: '16px'
-                  }}
-                  placeholder="Например: 12"
-                />
-              </div>
-              
-              <div>
-                <label style={{ display: 'block', marginBottom: '8px', color: '#cbd5e1' }}>
-                  Частота (Гц)
-                </label>
-                <input
-                  type="number"
-                  step="1"
-                  value={frequency}
-                  onChange={(e) => setFrequency(e.target.value)}
-                  style={{
-                    width: '100%',
-                    padding: '12px',
-                    borderRadius: '8px',
-                    backgroundColor: '#334155',
-                    border: '1px solid #475569',
-                    color: 'white',
-                    fontSize: '16px'
-                  }}
-                  placeholder="Например: 50"
-                />
-              </div>
-            </div>
-          </div>
+<div style={{ 
+  marginBottom: '24px',
+  padding: '16px',
+  backgroundColor: '#0f172a',
+  borderRadius: '8px'
+}}>
+  <h3 style={{ color: '#8b5cf6', marginBottom: '16px', fontSize: '18px' }}>
+    ⚡ Дополнительные параметры
+  </h3>
+  
+  <div style={{ 
+    display: 'grid', 
+    gridTemplateColumns: '1fr 1fr', 
+    gap: '16px',
+    width: '100%'
+  }}>
+    <div>
+      <label style={{ display: 'block', marginBottom: '8px', color: '#cbd5e1', fontSize: '14px' }}>
+        Напряжение (В)
+      </label>
+      <input
+        type="number"
+        step="0.1"
+        value={voltage}
+        onChange={(e) => setVoltage(e.target.value)}
+        style={{
+          width: '100%',
+          padding: '12px',
+          borderRadius: '8px',
+          backgroundColor: '#334155',
+          border: '1px solid #475569',
+          color: 'white',
+          fontSize: '16px',
+          boxSizing: 'border-box'
+        }}
+        placeholder="Например: 12"
+      />
+      <p style={{ fontSize: '11px', color: '#64748b', marginTop: '4px' }}>
+        Общее напряжение цепи
+      </p>
+    </div>
+    
+    <div>
+      <label style={{ display: 'block', marginBottom: '8px', color: '#cbd5e1', fontSize: '14px' }}>
+        Частота (Гц)
+      </label>
+      <input
+        type="number"
+        step="1"
+        value={frequency}
+        onChange={(e) => setFrequency(e.target.value)}
+        style={{
+          width: '100%',
+          padding: '12px',
+          borderRadius: '8px',
+          backgroundColor: '#334155',
+          border: '1px solid #475569',
+          color: 'white',
+          fontSize: '16px',
+          boxSizing: 'border-box'
+        }}
+        placeholder="Например: 50"
+      />
+      <p style={{ fontSize: '11px', color: '#64748b', marginTop: '4px' }}>
+        Для расчёта реактивного сопротивления
+      </p>
+    </div>
+  </div>
+</div>
 
           {/* РЕЗУЛЬТАТЫ */}
           <div style={{

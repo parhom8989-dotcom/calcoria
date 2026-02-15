@@ -365,98 +365,121 @@ export default function SetevojTransformatorPage() {
             </h3>
             
             {/* Напряжения */}
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '20px' }}>
-              <div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
-                  <label style={{ color: '#cbd5e1' }}>Первичное напряжение (В)</label>
-                  <span style={{ fontSize: '12px', color: '#64748b' }}>Типовые:</span>
-                </div>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '8px', marginBottom: '12px' }}>
-                  {typicalVoltages.slice(2, 5).map((volt) => (
-                    <button
-                      key={volt.value}
-                      type="button"
-                      onClick={() => selectTypicalVoltage(volt.value, true)}
-                      style={{
-                        padding: '6px 4px',
-                        backgroundColor: primaryVoltage === volt.value ? '#f59e0b' : '#334155',
-                        color: primaryVoltage === volt.value ? '#0f172a' : 'white',
-                        border: `1px solid ${primaryVoltage === volt.value ? '#f59e0b' : '#475569'}`,
-                        borderRadius: '6px',
-                        cursor: 'pointer',
-                        fontSize: '11px',
-                        textAlign: 'center'
-                      }}
-                    >
-                      <div style={{ fontWeight: 'bold' }}>{volt.label}</div>
-                      <div style={{ fontSize: '9px', opacity: 0.8 }}>{volt.desc}</div>
-                    </button>
-                  ))}
-                </div>
-                <input
-                  type="number"
-                  step="1"
-                  value={primaryVoltage}
-                  onChange={(e) => setPrimaryVoltage(e.target.value)}
-                  style={{
-                    width: '100%',
-                    padding: '12px',
-                    borderRadius: '8px',
-                    backgroundColor: '#334155',
-                    border: '1px solid #475569',
-                    color: 'white',
-                    fontSize: '16px'
-                  }}
-                  placeholder="Например: 220"
-                />
-              </div>
-              
-              <div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
-                  <label style={{ color: '#cbd5e1' }}>Вторичное напряжение (В)</label>
-                  <span style={{ fontSize: '12px', color: '#64748b' }}>Типовые:</span>
-                </div>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '8px', marginBottom: '12px' }}>
-                  {typicalVoltages.slice(0, 3).map((volt) => (
-                    <button
-                      key={volt.value}
-                      type="button"
-                      onClick={() => selectTypicalVoltage(volt.value, false)}
-                      style={{
-                        padding: '6px 4px',
-                        backgroundColor: secondaryVoltage === volt.value ? '#f59e0b' : '#334155',
-                        color: secondaryVoltage === volt.value ? '#0f172a' : 'white',
-                        border: `1px solid ${secondaryVoltage === volt.value ? '#f59e0b' : '#475569'}`,
-                        borderRadius: '6px',
-                        cursor: 'pointer',
-                        fontSize: '11px',
-                        textAlign: 'center'
-                      }}
-                    >
-                      <div style={{ fontWeight: 'bold' }}>{volt.label}</div>
-                      <div style={{ fontSize: '9px', opacity: 0.8 }}>{volt.desc}</div>
-                    </button>
-                  ))}
-                </div>
-                <input
-                  type="number"
-                  step="0.1"
-                  value={secondaryVoltage}
-                  onChange={(e) => setSecondaryVoltage(e.target.value)}
-                  style={{
-                    width: '100%',
-                    padding: '12px',
-                    borderRadius: '8px',
-                    backgroundColor: '#334155',
-                    border: '1px solid #475569',
-                    color: 'white',
-                    fontSize: '16px'
-                  }}
-                  placeholder="Например: 12"
-                />
-              </div>
-            </div>
-
+<div style={{ 
+  display: 'grid', 
+  gridTemplateColumns: '1fr 1fr', 
+  gap: '12px', 
+  marginBottom: '20px',
+  width: '100%'
+}}>
+  <div>
+    <div style={{ 
+      display: 'flex', 
+      flexDirection: 'column',
+      marginBottom: '6px'
+    }}>
+      <label style={{ color: '#cbd5e1', fontSize: '13px', fontWeight: 'bold' }}>
+        Первичное U₁
+      </label>
+      <span style={{ fontSize: '10px', color: '#94a3b8' }}>Входное (В)</span>
+    </div>
+    
+    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '6px', marginBottom: '8px' }}>
+      {typicalVoltages.slice(2, 5).map((volt) => (
+        <button
+          key={volt.value}
+          type="button"
+          onClick={() => selectTypicalVoltage(volt.value, true)}
+          style={{
+            padding: '4px 2px',
+            backgroundColor: primaryVoltage === volt.value ? '#f59e0b' : '#334155',
+            color: primaryVoltage === volt.value ? '#0f172a' : 'white',
+            border: `1px solid ${primaryVoltage === volt.value ? '#f59e0b' : '#475569'}`,
+            borderRadius: '4px',
+            cursor: 'pointer',
+            fontSize: '10px',
+            textAlign: 'center',
+            lineHeight: '1.2'
+          }}
+        >
+          <div style={{ fontWeight: 'bold' }}>{volt.label}</div>
+        </button>
+      ))}
+    </div>
+    
+    <input
+      type="number"
+      step="1"
+      value={primaryVoltage}
+      onChange={(e) => setPrimaryVoltage(e.target.value)}
+      style={{
+        width: '100%',
+        padding: '10px',
+        borderRadius: '6px',
+        backgroundColor: '#334155',
+        border: '1px solid #475569',
+        color: 'white',
+        fontSize: '14px',
+        boxSizing: 'border-box'
+      }}
+      placeholder="220"
+    />
+  </div>
+  
+  <div>
+    <div style={{ 
+      display: 'flex', 
+      flexDirection: 'column',
+      marginBottom: '6px'
+    }}>
+      <label style={{ color: '#cbd5e1', fontSize: '13px', fontWeight: 'bold' }}>
+        Вторичное U₂
+      </label>
+      <span style={{ fontSize: '10px', color: '#94a3b8' }}>Выходное (В)</span>
+    </div>
+    
+    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '6px', marginBottom: '8px' }}>
+      {typicalVoltages.slice(0, 3).map((volt) => (
+        <button
+          key={volt.value}
+          type="button"
+          onClick={() => selectTypicalVoltage(volt.value, false)}
+          style={{
+            padding: '4px 2px',
+            backgroundColor: secondaryVoltage === volt.value ? '#f59e0b' : '#334155',
+            color: secondaryVoltage === volt.value ? '#0f172a' : 'white',
+            border: `1px solid ${secondaryVoltage === volt.value ? '#f59e0b' : '#475569'}`,
+            borderRadius: '4px',
+            cursor: 'pointer',
+            fontSize: '10px',
+            textAlign: 'center',
+            lineHeight: '1.2'
+          }}
+        >
+          <div style={{ fontWeight: 'bold' }}>{volt.label}</div>
+        </button>
+      ))}
+    </div>
+    
+    <input
+      type="number"
+      step="0.1"
+      value={secondaryVoltage}
+      onChange={(e) => setSecondaryVoltage(e.target.value)}
+      style={{
+        width: '100%',
+        padding: '10px',
+        borderRadius: '6px',
+        backgroundColor: '#334155',
+        border: '1px solid #475569',
+        color: 'white',
+        fontSize: '14px',
+        boxSizing: 'border-box'
+      }}
+      placeholder="12"
+    />
+  </div>
+</div>
             {/* Токи (если режим по току) */}
             {mode === 'current' && (
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '20px' }}>
@@ -470,7 +493,7 @@ export default function SetevojTransformatorPage() {
                     value={primaryCurrent}
                     onChange={(e) => setPrimaryCurrent(e.target.value)}
                     style={{
-                      width: '100%',
+                      width: '90%',
                       padding: '12px',
                       borderRadius: '8px',
                       backgroundColor: '#334155',
@@ -492,7 +515,7 @@ export default function SetevojTransformatorPage() {
                     value={secondaryCurrent}
                     onChange={(e) => setSecondaryCurrent(e.target.value)}
                     style={{
-                      width: '100%',
+                      width: '90%',
                       padding: '12px',
                       borderRadius: '8px',
                       backgroundColor: '#334155',
@@ -541,7 +564,7 @@ export default function SetevojTransformatorPage() {
                   value={power}
                   onChange={(e) => setPower(e.target.value)}
                   style={{
-                    width: '100%',
+                    width: '90%',
                     padding: '12px',
                     borderRadius: '8px',
                     backgroundColor: '#334155',
@@ -563,7 +586,7 @@ export default function SetevojTransformatorPage() {
             borderRadius: '8px'
           }}>
             <h3 style={{ color: '#f59e0b', marginBottom: '16px', fontSize: '18px' }}>
-              🧲 Параметры сердечника
+              🔲 Параметры сердечника
             </h3>
             
             <div style={{ marginBottom: '20px' }}>
@@ -599,7 +622,7 @@ export default function SetevojTransformatorPage() {
                 value={coreArea}
                 onChange={(e) => setCoreArea(e.target.value)}
                 style={{
-                  width: '100%',
+                  width: '90%',
                   padding: '12px',
                   borderRadius: '8px',
                   backgroundColor: '#334155',
