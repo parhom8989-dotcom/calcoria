@@ -1,37 +1,61 @@
-import { MetadataRoute } from 'next'
+// app/sitemap.ts
+import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [
-    {
-      url: 'https://calcoria.ru',
-      lastModified: new Date(),
-      changeFrequency: 'yearly',
-      priority: 1,
-    },
-    {
-      url: 'https://calcoria.ru/teplotekhnika', // ваша страница калькулятора
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-   {
-  url: 'https://calcoria.ru/mechanics', // адрес новой страницы
-  lastModified: new Date(), // сегодняшняя дата
-  changeFrequency: 'monthly', // как часто меняется страница
-  priority: 0.7, // важность от 0.1 до 1.0
-}, 
-{
-  url: 'https://calcoria.ru/electrotech', // адрес новой страницы
-  lastModified: new Date(), // сегодняшняя дата
-  changeFrequency: 'monthly', // как часто меняется страница
-  priority: 0.7, // важность от 0.1 до 1.0
-}, 
-{
-  url: 'https://calcoria.ru/prochee', // адрес новой страницы
-  lastModified: new Date(), // сегодняшняя дата
-  changeFrequency: 'monthly', // как часто меняется страница
-  priority: 0.7, // важность от 0.1 до 1.0
-}  
-    // Добавьте сюда все остальные страницы вашего сайта в таком же формате
-  ]
+  const baseUrl = 'https://https://calcoria.ru'; // Твой адрес сайта
+
+  // Список всех разделов и калькуляторов
+  const calculators = [
+    // Механика
+    { url: '/mechanics', priority: 0.8 },
+    { url: '/mechanics/rychagi', priority: 0.7 },
+    { url: '/mechanics/peredachi', priority: 0.7 },
+    { url: '/mechanics/centr-mass', priority: 0.7 },
+    { url: '/mechanics/prochnost-balki', priority: 0.7 },
+    { url: '/mechanics/horsepower', priority: 0.7 },
+    
+    // Электротехника
+    { url: '/elektrotekhnika', priority: 0.8 },
+    { url: '/elektrotekhnika/zakon-oma', priority: 0.7 },
+    { url: '/elektrotekhnika/rezistor-led', priority: 0.7 },
+    { url: '/elektrotekhnika/solar', priority: 0.7 },
+    
+    // Теплотехника
+    { url: '/teplotekhnika', priority: 0.8 },
+    
+    // Прочее (other)
+    { url: '/other', priority: 0.8 },
+    { url: '/other/cement', priority: 0.7 },
+    { url: '/other/age', priority: 0.7 },
+    { url: '/other/random', priority: 0.7 },
+    { url: '/other/password', priority: 0.7 },
+    { url: '/other/proportions', priority: 0.7 },
+    { url: '/other/clothes-size', priority: 0.7 },
+    { url: '/other/plitka', priority: 0.7 },
+    { url: '/other/molar', priority: 0.7 },
+    { url: '/other/colors', priority: 0.7 },
+    { url: '/other/cycle', priority: 0.7 },
+    { url: '/other/currency', priority: 0.7 },
+    { url: '/other/bmi', priority: 0.7 },
+    { url: '/other/pregnancy', priority: 0.7 },
+    { url: '/other/equations', priority: 0.7 },
+    { url: '/other/transport', priority: 0.7 },
+    { url: '/other/mortgage', priority: 0.7 },
+    { url: '/other/percentage', priority: 0.7 },
+    { url: '/other/moonshine', priority: 0.7 },
+    { url: '/other/calories', priority: 0.7 },
+    { url: '/other/converter', priority: 0.7 },
+    { url: '/other/vat', priority: 0.7 },
+    { url: '/other/tire', priority: 0.7 },
+    
+    // Дополнительные
+    { url: '/about', priority: 0.5 },
+  ];
+
+  return calculators.map((calc) => ({
+    url: `${baseUrl}${calc.url}`,
+    lastModified: new Date(),
+    changeFrequency: 'weekly',
+    priority: calc.priority || 0.6,
+  }));
 }
