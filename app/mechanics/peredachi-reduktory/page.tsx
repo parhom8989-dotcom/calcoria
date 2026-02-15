@@ -535,118 +535,135 @@ export default function PeredachiPage() {
             </div>
           </div>
 
-          {/* Тип передачи */}
-          <div style={{ marginBottom: '24px' }}>
-            <h2 style={{ color: '#fed7aa', marginBottom: '12px', fontSize: '18px' }}>
-              Тип зубчатой передачи:
-            </h2>
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(4, 1fr)',
-              gap: '10px',
-              marginBottom: '20px'
-            }}>
-              <button
-                type="button"
-                onClick={() => setGearType('spur')}
-                style={{
-                  padding: '12px 8px',
-                  backgroundColor: gearType === 'spur' ? '#ea580c' : '#334155',
-                  color: 'white',
-                  border: 'none',
-                  borderRadius: '8px',
-                  cursor: 'pointer',
-                  fontWeight: 'bold',
-                  fontSize: '13px',
-                  textAlign: 'center',
-                  transition: 'all 0.3s'
-                }}
-                onMouseEnter={(e) => {
-                  if (gearType !== 'spur') e.currentTarget.style.backgroundColor = '#475569';
-                }}
-                onMouseLeave={(e) => {
-                  if (gearType !== 'spur') e.currentTarget.style.backgroundColor = '#334155';
-                }}
-              >
-                Прямозубая
-              </button>
-              
-              <button
-                type="button"
-                onClick={() => setGearType('helical')}
-                style={{
-                  padding: '12px 8px',
-                  backgroundColor: gearType === 'helical' ? '#ea580c' : '#334155',
-                  color: 'white',
-                  border: 'none',
-                  borderRadius: '8px',
-                  cursor: 'pointer',
-                  fontWeight: 'bold',
-                  fontSize: '13px',
-                  textAlign: 'center',
-                  transition: 'all 0.3s'
-                }}
-                onMouseEnter={(e) => {
-                  if (gearType !== 'helical') e.currentTarget.style.backgroundColor = '#475569';
-                }}
-                onMouseLeave={(e) => {
-                  if (gearType !== 'helical') e.currentTarget.style.backgroundColor = '#334155';
-                }}
-              >
-                Косозубая
-              </button>
-              
-              <button
-                type="button"
-                onClick={() => setGearType('bevel')}
-                style={{
-                  padding: '12px 8px',
-                  backgroundColor: gearType === 'bevel' ? '#ea580c' : '#334155',
-                  color: 'white',
-                  border: 'none',
-                  borderRadius: '8px',
-                  cursor: 'pointer',
-                  fontWeight: 'bold',
-                  fontSize: '13px',
-                  textAlign: 'center',
-                  transition: 'all 0.3s'
-                }}
-                onMouseEnter={(e) => {
-                  if (gearType !== 'bevel') e.currentTarget.style.backgroundColor = '#475569';
-                }}
-                onMouseLeave={(e) => {
-                  if (gearType !== 'bevel') e.currentTarget.style.backgroundColor = '#334155';
-                }}
-              >
-                Коническая
-              </button>
-              
-              <button
-                type="button"
-                onClick={() => setGearType('worm')}
-                style={{
-                  padding: '12px 8px',
-                  backgroundColor: gearType === 'worm' ? '#ea580c' : '#334155',
-                  color: 'white',
-                  border: 'none',
-                  borderRadius: '8px',
-                  cursor: 'pointer',
-                  fontWeight: 'bold',
-                  fontSize: '13px',
-                  textAlign: 'center',
-                  transition: 'all 0.3s'
-                }}
-                onMouseEnter={(e) => {
-                  if (gearType !== 'worm') e.currentTarget.style.backgroundColor = '#475569';
-                }}
-                onMouseLeave={(e) => {
-                  if (gearType !== 'worm') e.currentTarget.style.backgroundColor = '#334155';
-                }}
-              >
-                Червячная
-              </button>
-            </div>
-          </div>
+         {/* Тип зубчатой передачи */}
+<div style={{ marginBottom: '24px' }}>
+  <h2 style={{ color: '#fed7aa', marginBottom: '12px', fontSize: '18px' }}>
+    Тип зубчатой передачи:
+  </h2>
+  <div style={{ 
+    display: 'grid', 
+    gridTemplateColumns: 'repeat(2, 1fr)',
+    gap: '10px', 
+    marginBottom: '20px',
+    width: '100%'
+  }}>
+    <button
+      type="button"
+      onClick={() => setGearType('spur')}
+      style={{
+        padding: '12px 8px',
+        backgroundColor: gearType === 'spur' ? '#ea580c' : '#334155',
+        color: 'white',
+        border: 'none',
+        borderRadius: '8px',
+        cursor: 'pointer',
+        fontWeight: 'bold',
+        fontSize: 'clamp(14px, 3vw, 16px)',
+        textAlign: 'center',
+        transition: 'all 0.3s',
+        whiteSpace: 'normal',
+        wordBreak: 'break-word',
+        lineHeight: '1.3',
+        minHeight: '50px'
+      }}
+      onMouseEnter={(e) => {
+        if (gearType !== 'spur') e.currentTarget.style.backgroundColor = '#475569';
+      }}
+      onMouseLeave={(e) => {
+        if (gearType !== 'spur') e.currentTarget.style.backgroundColor = '#334155';
+      }}
+    >
+      Прямозубая
+    </button>
+    
+    <button
+      type="button"
+      onClick={() => setGearType('helical')}
+      style={{
+        padding: '12px 8px',
+        backgroundColor: gearType === 'helical' ? '#ea580c' : '#334155',
+        color: 'white',
+        border: 'none',
+        borderRadius: '8px',
+        cursor: 'pointer',
+        fontWeight: 'bold',
+        fontSize: 'clamp(14px, 3vw, 16px)',
+        textAlign: 'center',
+        transition: 'all 0.3s',
+        whiteSpace: 'normal',
+        wordBreak: 'break-word',
+        lineHeight: '1.3',
+        minHeight: '50px'
+      }}
+      onMouseEnter={(e) => {
+        if (gearType !== 'helical') e.currentTarget.style.backgroundColor = '#475569';
+      }}
+      onMouseLeave={(e) => {
+        if (gearType !== 'helical') e.currentTarget.style.backgroundColor = '#334155';
+      }}
+    >
+      Косозубая
+    </button>
+    
+    <button
+      type="button"
+      onClick={() => setGearType('bevel')}
+      style={{
+        padding: '12px 8px',
+        backgroundColor: gearType === 'bevel' ? '#ea580c' : '#334155',
+        color: 'white',
+        border: 'none',
+        borderRadius: '8px',
+        cursor: 'pointer',
+        fontWeight: 'bold',
+        fontSize: 'clamp(14px, 3vw, 16px)',
+        textAlign: 'center',
+        transition: 'all 0.3s',
+        whiteSpace: 'normal',
+        wordBreak: 'break-word',
+        lineHeight: '1.3',
+        minHeight: '50px'
+      }}
+      onMouseEnter={(e) => {
+        if (gearType !== 'bevel') e.currentTarget.style.backgroundColor = '#475569';
+      }}
+      onMouseLeave={(e) => {
+        if (gearType !== 'bevel') e.currentTarget.style.backgroundColor = '#334155';
+      }}
+    >
+      Коническая
+    </button>
+    
+    <button
+      type="button"
+      onClick={() => setGearType('worm')}
+      style={{
+        padding: '12px 8px',
+        backgroundColor: gearType === 'worm' ? '#ea580c' : '#334155',
+        color: 'white',
+        border: 'none',
+        borderRadius: '8px',
+        cursor: 'pointer',
+        fontWeight: 'bold',
+        fontSize: 'clamp(14px, 3vw, 16px)',
+        textAlign: 'center',
+        transition: 'all 0.3s',
+        whiteSpace: 'normal',
+        wordBreak: 'break-word',
+        lineHeight: '1.3',
+        minHeight: '50px'
+      }}
+      onMouseEnter={(e) => {
+        if (gearType !== 'worm') e.currentTarget.style.backgroundColor = '#475569';
+      }}
+      onMouseLeave={(e) => {
+        if (gearType !== 'worm') e.currentTarget.style.backgroundColor = '#334155';
+      }}
+    >
+      Червячная
+    </button>
+  </div>
+</div>
 
           {/* Примеры передач */}
           <div style={{ marginBottom: '24px' }}>

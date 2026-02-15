@@ -683,140 +683,149 @@ export default function CentrMassPage() {
               Параметры системы:
             </h2>
             
-            {/* Дискретные точки */}
-            {(mode === 'twoPoints' || mode === 'multiplePoints') && (
-              <div style={{ 
-                padding: '16px', 
-                backgroundColor: '#1e293b', 
-                borderRadius: '8px',
-                border: '1px solid #334155',
-                marginBottom: '20px'
-              }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
-                  <h3 style={{ color: '#a855f7', fontSize: '16px' }}>
-                    Материальные точки ({points.length} шт.):
-                  </h3>
-                  {mode === 'multiplePoints' && (
-                    <button
-                      type="button"
-                      onClick={addPoint}
-                      style={{
-                        padding: '8px 16px',
-                        backgroundColor: '#7c3aed',
-                        color: 'white',
-                        border: 'none',
-                        borderRadius: '6px',
-                        cursor: 'pointer',
-                        fontWeight: 'bold',
-                        fontSize: '14px',
-                        transition: 'all 0.3s'
-                      }}
-                      onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#6d28d9'}
-                      onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#7c3aed'}
-                    >
-                      + Добавить точку
-                    </button>
-                  )}
-                </div>
-                
-                <div style={{ display: 'grid', gap: '12px' }}>
-                  {points.map((point, index) => (
-                    <div key={index} style={{ 
-                      display: 'grid',
-                      gridTemplateColumns: '1fr 1fr 1fr auto',
-                      gap: '12px', 
-                      alignItems: 'center',
-                      padding: '12px',
-                      backgroundColor: '#0f172a',
-                      borderRadius: '6px'
-                    }}>
-                      <div style={{ color: '#cbd5e1' }}>
-                        Точка {index + 1}:
-                      </div>
-                      
-                      <div>
-                        <div style={{ color: '#94a3b8', fontSize: '12px', marginBottom: '4px' }}>Координата X (м)</div>
-                        <input
-                          type="number"
-                          step="0.1"
-                          value={point.x}
-                          onChange={(e) => updatePoint(index, 'x', e.target.value)}
-                          style={{
-                            width: '100%',
-                            padding: '8px',
-                            borderRadius: '4px',
-                            backgroundColor: '#1e293b',
-                            border: '1px solid #334155',
-                            color: 'white'
-                          }}
-                        />
-                      </div>
-                      
-                      <div>
-                        <div style={{ color: '#94a3b8', fontSize: '12px', marginBottom: '4px' }}>Координата Y (м)</div>
-                        <input
-                          type="number"
-                          step="0.1"
-                          value={point.y}
-                          onChange={(e) => updatePoint(index, 'y', e.target.value)}
-                          style={{
-                            width: '100%',
-                            padding: '8px',
-                            borderRadius: '4px',
-                            backgroundColor: '#1e293b',
-                            border: '1px solid #334155',
-                            color: 'white'
-                          }}
-                        />
-                      </div>
-                      
-                      <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
-                        <div style={{ minWidth: '100px' }}>
-                          <div style={{ color: '#94a3b8', fontSize: '12px', marginBottom: '4px' }}>Масса (кг)</div>
-                          <input
-                            type="number"
-                            step="0.1"
-                            min="0.1"
-                            value={point.mass}
-                            onChange={(e) => updatePoint(index, 'mass', e.target.value)}
-                            style={{
-                              width: '100%',
-                              padding: '8px',
-                              borderRadius: '4px',
-                              backgroundColor: '#1e293b',
-                              border: '1px solid #334155',
-                              color: 'white'
-                            }}
-                          />
-                        </div>
-                        
-                        {mode === 'multiplePoints' && points.length > 2 && (
-                          <button
-                            type="button"
-                            onClick={() => removePoint(index)}
-                            style={{
-                              padding: '8px 12px',
-                              backgroundColor: '#dc2626',
-                              color: 'white',
-                              border: 'none',
-                              borderRadius: '6px',
-                              cursor: 'pointer',
-                              fontWeight: 'bold',
-                              fontSize: '14px',
-                              transition: 'all 0.3s'
-                            }}
-                            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#b91c1c'}
-                            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#dc2626'}
-                          >
-                            ×
-                          </button>
-                        )}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
+           {/* Дискретные точки */}
+{(mode === 'twoPoints' || mode === 'multiplePoints') && (
+  <div style={{ 
+    padding: '16px', 
+    backgroundColor: '#1e293b', 
+    borderRadius: '8px',
+    border: '1px solid #334155',
+    marginBottom: '20px'
+  }}>
+    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
+      <h3 style={{ color: '#a855f7', fontSize: '16px' }}>
+        Материальные точки ({points.length} шт.):
+      </h3>
+      {mode === 'multiplePoints' && (
+        <button
+          type="button"
+          onClick={addPoint}
+          style={{
+            padding: '8px 16px',
+            backgroundColor: '#7c3aed',
+            color: 'white',
+            border: 'none',
+            borderRadius: '6px',
+            cursor: 'pointer',
+            fontWeight: 'bold',
+            fontSize: '14px',
+            transition: 'all 0.3s'
+          }}
+          onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#6d28d9'}
+          onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#7c3aed'}
+        >
+          + Добавить точку
+        </button>
+      )}
+    </div>
+    
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+      {points.map((point, index) => (
+        <div key={index} style={{ 
+          padding: '16px',
+          backgroundColor: '#0f172a',
+          borderRadius: '6px'
+        }}>
+          <div style={{ 
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            marginBottom: '12px'
+          }}>
+            <div style={{ color: '#cbd5e1', fontWeight: 'bold' }}>
+              Точка {index + 1}
+            </div>
+            {mode === 'multiplePoints' && points.length > 2 && (
+              <button
+                type="button"
+                onClick={() => removePoint(index)}
+                style={{
+                  padding: '6px 12px',
+                  backgroundColor: '#dc2626',
+                  color: 'white',
+                  border: 'none',
+                  borderRadius: '6px',
+                  cursor: 'pointer',
+                  fontSize: '12px',
+                  transition: 'all 0.3s'
+                }}
+                onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#b91c1c'}
+                onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#dc2626'}
+              >
+                Удалить
+              </button>
             )}
+          </div>
+          
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: '1fr 1fr',
+            gap: '12px',
+            marginBottom: '12px'
+          }}>
+            <div>
+              <div style={{ color: '#94a3b8', fontSize: '12px', marginBottom: '4px' }}>Координата X (м)</div>
+              <input
+                type="number"
+                step="0.1"
+                value={point.x}
+                onChange={(e) => updatePoint(index, 'x', e.target.value)}
+                style={{
+                  width: '100%',
+                  padding: '10px',
+                  borderRadius: '6px',
+                  backgroundColor: '#1e293b',
+                  border: '1px solid #334155',
+                  color: 'white',
+                  fontSize: '14px'
+                }}
+              />
+            </div>
+            
+            <div>
+              <div style={{ color: '#94a3b8', fontSize: '12px', marginBottom: '4px' }}>Координата Y (м)</div>
+              <input
+                type="number"
+                step="0.1"
+                value={point.y}
+                onChange={(e) => updatePoint(index, 'y', e.target.value)}
+                style={{
+                  width: '100%',
+                  padding: '10px',
+                  borderRadius: '6px',
+                  backgroundColor: '#1e293b',
+                  border: '1px solid #334155',
+                  color: 'white',
+                  fontSize: '14px'
+                }}
+              />
+            </div>
+          </div>
+          
+          <div>
+            <div style={{ color: '#94a3b8', fontSize: '12px', marginBottom: '4px' }}>Масса (кг)</div>
+            <input
+              type="number"
+              step="0.1"
+              min="0.1"
+              value={point.mass}
+              onChange={(e) => updatePoint(index, 'mass', e.target.value)}
+              style={{
+                width: '100%',
+                padding: '10px',
+                borderRadius: '6px',
+                backgroundColor: '#1e293b',
+                border: '1px solid #334155',
+                color: 'white',
+                fontSize: '14px'
+              }}
+            />
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+)}
             
             {/* Линейный объект */}
             {mode === 'line' && (

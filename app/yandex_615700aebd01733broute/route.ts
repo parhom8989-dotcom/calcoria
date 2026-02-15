@@ -4,7 +4,7 @@ export async function GET() {
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     </head>
-    <body>Verification: 615700aebd01733b</body>
+    <body>Verification: 106587f3338e6756</body>
 </html>`;
 
   return new Response(htmlContent, {

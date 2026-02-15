@@ -414,127 +414,151 @@ export default function ProchnostBalkiPage() {
             </div>
           </div>
 
-          {/* Тип балки и нагрузки */}
-          <div style={{ marginBottom: '24px' }}>
-            <h3 style={{ color: '#cbd5e1', marginBottom: '16px', fontSize: '18px' }}>
-              Условия закрепления и нагрузки
-            </h3>
-            
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: '1fr 1fr',
-              gap: '12px',
-              marginBottom: '20px'
-            }}>
-              <div>
-                <label style={{ display: 'block', marginBottom: '8px', color: '#cbd5e1' }}>
-                  Тип балки
-                </label>
-                <div style={{ display: 'flex', gap: '8px' }}>
-                  <button
-                    type="button"
-                    onClick={() => setBeamType('simple')}
-                    style={{
-                      flex: 1,
-                      padding: '10px',
-                      backgroundColor: beamType === 'simple' ? '#f97316' : '#334155',
-                      color: beamType === 'simple' ? '#0f172a' : 'white',
-                      border: `1px solid ${beamType === 'simple' ? '#f97316' : '#475569'}`,
-                      borderRadius: '6px',
-                      cursor: 'pointer',
-                      fontWeight: 'bold'
-                    }}
-                  >
-                    Шарнирная
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setBeamType('cantilever')}
-                    style={{
-                      flex: 1,
-                      padding: '10px',
-                      backgroundColor: beamType === 'cantilever' ? '#f97316' : '#334155',
-                      color: beamType === 'cantilever' ? '#0f172a' : 'white',
-                      border: `1px solid ${beamType === 'cantilever' ? '#f97316' : '#475569'}`,
-                      borderRadius: '6px',
-                      cursor: 'pointer',
-                      fontWeight: 'bold'
-                    }}
-                  >
-                    Консольная
-                  </button>
-                </div>
-              </div>
+         {/* Тип балки и нагрузки */}
+<div style={{ marginBottom: '24px' }}>
+  <h3 style={{ color: '#cbd5e1', marginBottom: '16px', fontSize: '18px' }}>
+    Условия закрепления и нагрузки
+  </h3>
+  
+  <div style={{
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '20px',
+    marginBottom: '20px'
+  }}>
+    {/* Тип балки */}
+    <div>
+      <label style={{ display: 'block', marginBottom: '8px', color: '#cbd5e1', fontSize: '14px' }}>
+        Тип балки
+      </label>
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: '1fr 1fr',
+        gap: '8px'
+      }}>
+        <button
+          type="button"
+          onClick={() => setBeamType('simple')}
+          style={{
+            padding: '12px',
+            backgroundColor: beamType === 'simple' ? '#f97316' : '#334155',
+            color: beamType === 'simple' ? '#0f172a' : 'white',
+            border: `1px solid ${beamType === 'simple' ? '#f97316' : '#475569'}`,
+            borderRadius: '8px',
+            cursor: 'pointer',
+            fontWeight: 'bold',
+            fontSize: '14px',
+            textAlign: 'center',
+            transition: 'all 0.3s'
+          }}
+        >
+          Шарнирная
+        </button>
+        <button
+          type="button"
+          onClick={() => setBeamType('cantilever')}
+          style={{
+            padding: '12px',
+            backgroundColor: beamType === 'cantilever' ? '#f97316' : '#334155',
+            color: beamType === 'cantilever' ? '#0f172a' : 'white',
+            border: `1px solid ${beamType === 'cantilever' ? '#f97316' : '#475569'}`,
+            borderRadius: '8px',
+            cursor: 'pointer',
+            fontWeight: 'bold',
+            fontSize: '14px',
+            textAlign: 'center',
+            transition: 'all 0.3s'
+          }}
+        >
+          Консольная
+        </button>
+      </div>
+    </div>
 
-              <div>
-                <label style={{ display: 'block', marginBottom: '8px', color: '#cbd5e1' }}>
-                  Тип нагрузки
-                </label>
-                <div style={{ display: 'flex', gap: '8px' }}>
-                  <button
-                    type="button"
-                    onClick={() => setLoadType('uniform')}
-                    style={{
-                      flex: 1,
-                      padding: '10px',
-                      backgroundColor: loadType === 'uniform' ? '#f97316' : '#334155',
-                      color: loadType === 'uniform' ? '#0f172a' : 'white',
-                      border: `1px solid ${loadType === 'uniform' ? '#f97316' : '#475569'}`,
-                      borderRadius: '6px',
-                      cursor: 'pointer',
-                      fontWeight: 'bold'
-                    }}
-                  >
-                    Равномерная
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setLoadType('point')}
-                    style={{
-                      flex: 1,
-                      padding: '10px',
-                      backgroundColor: loadType === 'point' ? '#f97316' : '#334155',
-                      color: loadType === 'point' ? '#0f172a' : 'white',
-                      border: `1px solid ${loadType === 'point' ? '#f97316' : '#475569'}`,
-                      borderRadius: '6px',
-                      cursor: 'pointer',
-                      fontWeight: 'bold'
-                    }}
-                  >
-                    Сосредоточенная
-                  </button>
-                </div>
-              </div>
-            </div>
+    {/* Тип нагрузки */}
+    <div>
+      <label style={{ display: 'block', marginBottom: '8px', color: '#cbd5e1', fontSize: '14px' }}>
+        Тип нагрузки
+      </label>
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: '1fr 1fr',
+        gap: '8px'
+      }}>
+        <button
+          type="button"
+          onClick={() => setLoadType('uniform')}
+          style={{
+            padding: '12px',
+            backgroundColor: loadType === 'uniform' ? '#f97316' : '#334155',
+            color: loadType === 'uniform' ? '#0f172a' : 'white',
+            border: `1px solid ${loadType === 'uniform' ? '#f97316' : '#475569'}`,
+            borderRadius: '8px',
+            cursor: 'pointer',
+            fontWeight: 'bold',
+            fontSize: '14px',
+            textAlign: 'center',
+            transition: 'all 0.3s'
+          }}
+        >
+          Равномерная
+        </button>
+        <button
+          type="button"
+          onClick={() => setLoadType('point')}
+          style={{
+            padding: '12px',
+            backgroundColor: loadType === 'point' ? '#f97316' : '#334155',
+            color: loadType === 'point' ? '#0f172a' : 'white',
+            border: `1px solid ${loadType === 'point' ? '#f97316' : '#475569'}`,
+            borderRadius: '8px',
+            cursor: 'pointer',
+            fontWeight: 'bold',
+            fontSize: '14px',
+            textAlign: 'center',
+            transition: 'all 0.3s'
+          }}
+        >
+          Сосредоточенная
+        </button>
+      </div>
+    </div>
+  </div>
 
-            {loadType === 'point' && (
-              <div style={{ marginBottom: '20px' }}>
-                <label style={{ display: 'block', marginBottom: '8px', color: '#cbd5e1' }}>
-                  Положение нагрузки (от опоры)
-                </label>
-                <input
-                  type="range"
-                  min="0.1"
-                  max="0.9"
-                  step="0.1"
-                  value={loadPosition}
-                  onChange={(e) => setLoadPosition(e.target.value)}
-                  style={{
-                    width: '100%',
-                    height: '8px',
-                    borderRadius: '4px',
-                    backgroundColor: '#334155',
-                    outline: 'none'
-                  }}
-                />
-                <div style={{ display: 'flex', justifyContent: 'space-between', color: '#94a3b8', fontSize: '12px' }}>
-                  <span>0.1L (близко к опоре)</span>
-                  <span>0.5L (посередине)</span>
-                  <span>0.9L (далеко от опоры)</span>
-                </div>
-              </div>
-            )}
-          </div>
+  {loadType === 'point' && (
+    <div style={{ marginTop: '16px' }}>
+      <label style={{ display: 'block', marginBottom: '8px', color: '#cbd5e1', fontSize: '14px' }}>
+        Положение нагрузки (от опоры)
+      </label>
+      <input
+        type="range"
+        min="0.1"
+        max="0.9"
+        step="0.1"
+        value={loadPosition}
+        onChange={(e) => setLoadPosition(e.target.value)}
+        style={{
+          width: '100%',
+          height: '8px',
+          borderRadius: '4px',
+          backgroundColor: '#334155',
+          outline: 'none'
+        }}
+      />
+      <div style={{ 
+        display: 'flex', 
+        justifyContent: 'space-between', 
+        color: '#94a3b8', 
+        fontSize: '12px',
+        marginTop: '4px'
+      }}>
+        <span>0.1L (близко к опоре)</span>
+        <span>0.5L (посередине)</span>
+        <span>0.9L (далеко от опоры)</span>
+      </div>
+    </div>
+  )}
+</div>
 
           {/* Основные параметры */}
           <div style={{ marginBottom: '24px' }}>

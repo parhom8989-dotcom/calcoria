@@ -274,39 +274,48 @@ export default function RezistorLedPage() {
             </button>
           </div>
 
-          {/* Выбор типа светодиода */}
-          <div style={{ marginBottom: '24px' }}>
-            <h3 style={{ color: '#cbd5e1', marginBottom: '12px', fontSize: '18px' }}>
-              Тип светодиода
-            </h3>
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(4, 1fr)',
-              gap: '8px',
-              marginBottom: '20px'
-            }}>
-              {Object.entries(ledTypes).map(([key, led]) => (
-                <button
-                  key={key}
-                  type="button"
-                  onClick={() => selectLedType(key)}
-                  style={{
-                    padding: '12px 8px',
-                    backgroundColor: ledType === key ? led.color : '#334155',
-                    color: 'white',
-                    border: `2px solid ${ledType === key ? led.color : '#475569'}`,
-                    borderRadius: '8px',
-                    cursor: 'pointer',
-                    fontWeight: 'bold',
-                    textAlign: 'center',
-                    fontSize: '12px'
-                  }}
-                >
-                  {led.name}
-                </button>
-              ))}
-            </div>
-          </div>
+         {/* Выбор типа светодиода */}
+<div style={{ marginBottom: '24px' }}>
+  <h3 style={{ color: '#cbd5e1', marginBottom: '12px', fontSize: '18px' }}>
+    Тип светодиода
+  </h3>
+  <div style={{
+    display: 'grid',
+    gridTemplateColumns: 'repeat(4, 1fr)',
+    gap: '8px',
+    marginBottom: '20px',
+    width: '100%'
+  }}>
+    {Object.entries(ledTypes).map(([key, led]) => (
+      <button
+        key={key}
+        type="button"
+        onClick={() => selectLedType(key)}
+        style={{
+          padding: '12px 4px',
+          backgroundColor: ledType === key ? led.color : '#334155',
+          color: 'white',
+          border: `2px solid ${ledType === key ? led.color : '#475569'}`,
+          borderRadius: '8px',
+          cursor: 'pointer',
+          fontWeight: 'bold',
+          textAlign: 'center',
+          fontSize: 'clamp(11px, 2.5vw, 14px)',
+          transition: 'all 0.3s',
+          whiteSpace: 'normal',
+          wordBreak: 'break-word',
+          lineHeight: '1.3',
+          minHeight: '50px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center'
+        }}
+      >
+        {led.name}
+      </button>
+    ))}
+  </div>
+</div>
 
           {/* Параметры */}
           <div style={{ marginBottom: '24px' }}>

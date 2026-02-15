@@ -421,398 +421,416 @@ export default function RychagiPage() {
           </div>
 
           {/* Тип рычага */}
-          <div style={{ marginBottom: '24px' }}>
-            <h2 style={{ color: '#dbeafe', marginBottom: '12px', fontSize: '18px' }}>
-              Тип рычага:
-            </h2>
-            <div style={{
-              display: 'flex',
-              gap: '12px',
-              marginBottom: '20px'
-            }}>
-              <button
-                type="button"
-                onClick={() => setLeverType('first')}
-                style={{
-                  flex: 1,
-                  padding: '12px',
-                  backgroundColor: leverType === 'first' ? '#3b82f6' : '#334155',
-                  color: 'white',
-                  border: 'none',
-                  borderRadius: '8px',
-                  cursor: 'pointer',
-                  fontWeight: 'bold',
-                  fontSize: '14px',
-                  transition: 'all 0.3s'
-                }}
-                onMouseEnter={(e) => {
-                  if (leverType !== 'first') e.currentTarget.style.backgroundColor = '#475569';
-                }}
-                onMouseLeave={(e) => {
-                  if (leverType !== 'first') e.currentTarget.style.backgroundColor = '#334155';
-                }}
-              >
-                1 род (Опора посередине)
-              </button>
-              
-              <button
-                type="button"
-                onClick={() => setLeverType('second')}
-                style={{
-                  flex: 1,
-                  padding: '12px',
-                  backgroundColor: leverType === 'second' ? '#3b82f6' : '#334155',
-                  color: 'white',
-                  border: 'none',
-                  borderRadius: '8px',
-                  cursor: 'pointer',
-                  fontWeight: 'bold',
-                  fontSize: '14px',
-                  transition: 'all 0.3s'
-                }}
-                onMouseEnter={(e) => {
-                  if (leverType !== 'second') e.currentTarget.style.backgroundColor = '#475569';
-                }}
-                onMouseLeave={(e) => {
-                  if (leverType !== 'second') e.currentTarget.style.backgroundColor = '#334155';
-                }}
-              >
-                2 род (Груз посередине)
-              </button>
-              
-              <button
-                type="button"
-                onClick={() => setLeverType('third')}
-                style={{
-                  flex: 1,
-                  padding: '12px',
-                  backgroundColor: leverType === 'third' ? '#3b82f6' : '#334155',
-                  color: 'white',
-                  border: 'none',
-                  borderRadius: '8px',
-                  cursor: 'pointer',
-                  fontWeight: 'bold',
-                  fontSize: '14px',
-                  transition: 'all 0.3s'
-                }}
-                onMouseEnter={(e) => {
-                  if (leverType !== 'third') e.currentTarget.style.backgroundColor = '#475569';
-                }}
-                onMouseLeave={(e) => {
-                  if (leverType !== 'third') e.currentTarget.style.backgroundColor = '#334155';
-                }}
-              >
-                3 род (Усилие посередине)
-              </button>
-            </div>
-          </div>
-
-          {/* Примеры рычагов */}
-          <div style={{ marginBottom: '24px' }}>
-            <h2 style={{ color: '#dbeafe', marginBottom: '12px', fontSize: '18px' }}>
-              Примеры рычагов:
-            </h2>
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(3, 1fr)',
-              gap: '10px',
-              marginBottom: '16px'
-            }}>
-              {leverExamples.map((example, index) => (
-                <button
-                  key={index}
-                  type="button"
-                  onClick={() => loadExample(example)}
-                  style={{
-                    padding: '10px 8px',
-                    backgroundColor: '#2563eb',
-                    color: 'white',
-                    border: 'none',
-                    borderRadius: '6px',
-                    cursor: 'pointer',
-                    fontSize: '12px',
-                    textAlign: 'center',
-                    transition: 'all 0.3s'
-                  }}
-                  onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#1d4ed8'}
-                  onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#2563eb'}
-                >
-                  <div style={{ fontWeight: 'bold', marginBottom: '4px' }}>{example.name}</div>
-                  <div style={{ fontSize: '10px', opacity: 0.9 }}>
-                    {example.type === 'first' ? 'Ⅰ' : example.type === 'second' ? 'Ⅱ' : 'Ⅲ'} род
-                  </div>
-                </button>
-              ))}
-            </div>
-          </div>
+<div style={{ marginBottom: '24px' }}>
+  <h2 style={{ color: '#dbeafe', marginBottom: '12px', fontSize: '18px' }}>
+    Тип рычага:
+  </h2>
+  <div style={{
+    display: 'grid',
+    gridTemplateColumns: 'repeat(3, 1fr)',
+    gap: '12px',
+    marginBottom: '20px'
+  }}>
+    <button
+      type="button"
+      onClick={() => setLeverType('first')}
+      style={{
+        padding: '12px 8px',
+        backgroundColor: leverType === 'first' ? '#3b82f6' : '#334155',
+        color: 'white',
+        border: 'none',
+        borderRadius: '8px',
+        cursor: 'pointer',
+        fontWeight: 'bold',
+        fontSize: 'clamp(12px, 2.5vw, 14px)',
+        transition: 'all 0.3s',
+        whiteSpace: 'normal',
+        wordBreak: 'break-word',
+        lineHeight: '1.3',
+        minHeight: '60px'
+      }}
+      onMouseEnter={(e) => {
+        if (leverType !== 'first') e.currentTarget.style.backgroundColor = '#475569';
+      }}
+      onMouseLeave={(e) => {
+        if (leverType !== 'first') e.currentTarget.style.backgroundColor = '#334155';
+      }}
+    >
+      <div style={{ fontWeight: 'bold', marginBottom: '2px' }}>Ⅰ род</div>
+      <div style={{ fontSize: 'clamp(10px, 2vw, 12px)', opacity: 0.9 }}>Опора посередине</div>
+    </button>
+    
+    <button
+      type="button"
+      onClick={() => setLeverType('second')}
+      style={{
+        padding: '12px 8px',
+        backgroundColor: leverType === 'second' ? '#3b82f6' : '#334155',
+        color: 'white',
+        border: 'none',
+        borderRadius: '8px',
+        cursor: 'pointer',
+        fontWeight: 'bold',
+        fontSize: 'clamp(12px, 2.5vw, 14px)',
+        transition: 'all 0.3s',
+        whiteSpace: 'normal',
+        wordBreak: 'break-word',
+        lineHeight: '1.3',
+        minHeight: '60px'
+      }}
+      onMouseEnter={(e) => {
+        if (leverType !== 'second') e.currentTarget.style.backgroundColor = '#475569';
+      }}
+      onMouseLeave={(e) => {
+        if (leverType !== 'second') e.currentTarget.style.backgroundColor = '#334155';
+      }}
+    >
+      <div style={{ fontWeight: 'bold', marginBottom: '2px' }}>Ⅱ род</div>
+      <div style={{ fontSize: 'clamp(10px, 2vw, 12px)', opacity: 0.9 }}>Груз посередине</div>
+    </button>
+    
+    <button
+      type="button"
+      onClick={() => setLeverType('third')}
+      style={{
+        padding: '12px 8px',
+        backgroundColor: leverType === 'third' ? '#3b82f6' : '#334155',
+        color: 'white',
+        border: 'none',
+        borderRadius: '8px',
+        cursor: 'pointer',
+        fontWeight: 'bold',
+        fontSize: 'clamp(12px, 2.5vw, 14px)',
+        transition: 'all 0.3s',
+        whiteSpace: 'normal',
+        wordBreak: 'break-word',
+        lineHeight: '1.3',
+        minHeight: '60px'
+      }}
+      onMouseEnter={(e) => {
+        if (leverType !== 'third') e.currentTarget.style.backgroundColor = '#475569';
+      }}
+      onMouseLeave={(e) => {
+        if (leverType !== 'third') e.currentTarget.style.backgroundColor = '#334155';
+      }}
+    >
+      <div style={{ fontWeight: 'bold', marginBottom: '2px' }}>Ⅲ род</div>
+      <div style={{ fontSize: 'clamp(10px, 2vw, 12px)', opacity: 0.9 }}>Усилие посередине</div>
+    </button>
+  </div>
+</div>
 
           {/* Основные параметры */}
-          <div style={{ marginBottom: '24px' }}>
-            <h2 style={{ color: '#dbeafe', marginBottom: '16px', fontSize: '18px' }}>
-              Введите параметры рычага:
-            </h2>
-            
-            {/* Две колонки с параметрами */}
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', marginBottom: '20px' }}>
-              
-              {/* Левая сторона */}
-              <div>
-                <div style={{ 
-                  padding: '16px', 
-                  backgroundColor: '#1e293b', 
-                  borderRadius: '8px',
-                  border: '1px solid #334155'
-                }}>
-                  <h3 style={{ color: '#60a5fa', marginBottom: '12px', fontSize: '16px', textAlign: 'center' }}>
-                    Левая сторона
-                  </h3>
-                  
-                  <div style={{ marginBottom: '20px' }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
-                      <label style={{ color: '#cbd5e1' }}>Сила F₁ (Н)</label>
-                      <span style={{ fontSize: '12px', color: '#64748b' }}>Типовые:</span>
-                    </div>
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '6px', marginBottom: '10px' }}>
-                      {typicalForces.slice(0, 3).map((item) => (
-                        <button
-                          key={item.value}
-                          type="button"
-                          onClick={() => selectTypicalForce(item.value, 'force1')}
-                          style={{
-                            padding: '6px 4px',
-                            backgroundColor: force1 === item.value ? '#60a5fa' : '#334155',
-                            color: force1 === item.value ? '#0f172a' : 'white',
-                            border: `1px solid ${force1 === item.value ? '#60a5fa' : '#475569'}`,
-                            borderRadius: '6px',
-                            cursor: 'pointer',
-                            fontSize: '11px',
-                            textAlign: 'center',
-                            transition: 'all 0.3s'
-                          }}
-                        >
-                          <div style={{ fontWeight: 'bold' }}>{item.label}</div>
-                        </button>
-                      ))}
-                    </div>
-                    <input
-                      type="number"
-                      step="0.1"
-                      value={force1}
-                      onChange={(e) => setForce1(e.target.value)}
-                      style={{
-                        width: '100%',
-                        padding: '12px',
-                        borderRadius: '8px',
-                        backgroundColor: '#0f172a',
-                        border: '1px solid #334155',
-                        color: 'white',
-                        fontSize: '16px'
-                      }}
-                      placeholder="Сила слева"
-                    />
-                  </div>
-                  
-                  <div>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
-                      <label style={{ color: '#cbd5e1' }}>Плечо L₁ (м)</label>
-                      <span style={{ fontSize: '12px', color: '#64748b' }}>Типовые:</span>
-                    </div>
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '6px', marginBottom: '10px' }}>
-                      {typicalArms.slice(0, 3).map((item) => (
-                        <button
-                          key={item.value}
-                          type="button"
-                          onClick={() => selectTypicalArm(item.value, 'arm1')}
-                          style={{
-                            padding: '6px 4px',
-                            backgroundColor: arm1 === item.value ? '#60a5fa' : '#334155',
-                            color: arm1 === item.value ? '#0f172a' : 'white',
-                            border: `1px solid ${arm1 === item.value ? '#60a5fa' : '#475569'}`,
-                            borderRadius: '6px',
-                            cursor: 'pointer',
-                            fontSize: '11px',
-                            textAlign: 'center',
-                            transition: 'all 0.3s'
-                          }}
-                        >
-                          <div style={{ fontWeight: 'bold' }}>{item.label}</div>
-                        </button>
-                      ))}
-                    </div>
-                    <input
-                      type="number"
-                      step="0.01"
-                      value={arm1}
-                      onChange={(e) => setArm1(e.target.value)}
-                      style={{
-                        width: '100%',
-                        padding: '12px',
-                        borderRadius: '8px',
-                        backgroundColor: '#0f172a',
-                        border: '1px solid #334155',
-                        color: 'white',
-                        fontSize: '16px'
-                      }}
-                      placeholder="Длина плеча слева"
-                    />
-                  </div>
-                </div>
-              </div>
-              
-              {/* Правая сторона */}
-              <div>
-                <div style={{ 
-                  padding: '16px', 
-                  backgroundColor: '#1e293b', 
-                  borderRadius: '8px',
-                  border: '1px solid #334155'
-                }}>
-                  <h3 style={{ color: '#60a5fa', marginBottom: '12px', fontSize: '16px', textAlign: 'center' }}>
-                    Правая сторона
-                  </h3>
-                  
-                  <div style={{ marginBottom: '20px' }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
-                      <label style={{ color: '#cbd5e1' }}>Сила F₂ (Н)</label>
-                      <span style={{ fontSize: '12px', color: '#64748b' }}>Типовые:</span>
-                    </div>
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '6px', marginBottom: '10px' }}>
-                      {typicalForces.slice(3, 6).map((item) => (
-                        <button
-                          key={item.value}
-                          type="button"
-                          onClick={() => selectTypicalForce(item.value, 'force2')}
-                          style={{
-                            padding: '6px 4px',
-                            backgroundColor: force2 === item.value ? '#60a5fa' : '#334155',
-                            color: force2 === item.value ? '#0f172a' : 'white',
-                            border: `1px solid ${force2 === item.value ? '#60a5fa' : '#475569'}`,
-                            borderRadius: '6px',
-                            cursor: 'pointer',
-                            fontSize: '11px',
-                            textAlign: 'center',
-                            transition: 'all 0.3s'
-                          }}
-                        >
-                          <div style={{ fontWeight: 'bold' }}>{item.label}</div>
-                        </button>
-                      ))}
-                    </div>
-                    <input
-                      type="number"
-                      step="0.1"
-                      value={force2}
-                      onChange={(e) => setForce2(e.target.value)}
-                      style={{
-                        width: '100%',
-                        padding: '12px',
-                        borderRadius: '8px',
-                        backgroundColor: '#0f172a',
-                        border: '1px solid #334155',
-                        color: 'white',
-                        fontSize: '16px'
-                      }}
-                      placeholder="Сила справа"
-                    />
-                  </div>
-                  
-                  <div>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
-                      <label style={{ color: '#cbd5e1' }}>Плечо L₂ (м)</label>
-                      <span style={{ fontSize: '12px', color: '#64748b' }}>Типовые:</span>
-                    </div>
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '6px', marginBottom: '10px' }}>
-                      {typicalArms.slice(3, 6).map((item) => (
-                        <button
-                          key={item.value}
-                          type="button"
-                          onClick={() => selectTypicalArm(item.value, 'arm2')}
-                          style={{
-                            padding: '6px 4px',
-                            backgroundColor: arm2 === item.value ? '#60a5fa' : '#334155',
-                            color: arm2 === item.value ? '#0f172a' : 'white',
-                            border: `1px solid ${arm2 === item.value ? '#60a5fa' : '#475569'}`,
-                            borderRadius: '6px',
-                            cursor: 'pointer',
-                            fontSize: '11px',
-                            textAlign: 'center',
-                            transition: 'all 0.3s'
-                          }}
-                        >
-                          <div style={{ fontWeight: 'bold' }}>{item.label}</div>
-                        </button>
-                      ))}
-                    </div>
-                    <input
-                      type="number"
-                      step="0.01"
-                      value={arm2}
-                      onChange={(e) => setArm2(e.target.value)}
-                      style={{
-                        width: '100%',
-                        padding: '12px',
-                        borderRadius: '8px',
-                        backgroundColor: '#0f172a',
-                        border: '1px solid #334155',
-                        color: 'white',
-                        fontSize: '16px'
-                      }}
-                      placeholder="Длина плеча справа"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Для режима выигрыша в силе */}
-            {mode === 'forceGain' && (
-              <div style={{ marginBottom: '20px' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
-                  <label style={{ color: '#cbd5e1' }}>Требуемый выигрыш (раз)</label>
-                  <span style={{ fontSize: '12px', color: '#64748b' }}>Типовые:</span>
-                </div>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(6, 1fr)', gap: '6px', marginBottom: '12px' }}>
-                  {typicalGains.map((item) => (
-                    <button
-                      key={item.value}
-                      type="button"
-                      onClick={() => selectTypicalGain(item.value)}
-                      style={{
-                        padding: '8px 4px',
-                        backgroundColor: forceGain === item.value ? '#60a5fa' : '#334155',
-                        color: forceGain === item.value ? '#0f172a' : 'white',
-                        border: `1px solid ${forceGain === item.value ? '#60a5fa' : '#475569'}`,
-                        borderRadius: '6px',
-                        cursor: 'pointer',
-                        fontSize: '12px',
-                        fontWeight: 'bold',
-                        textAlign: 'center',
-                        transition: 'all 0.3s'
-                      }}
-                    >
-                      {item.label}
-                    </button>
-                  ))}
-                </div>
-                <input
-                  type="number"
-                  step="0.1"
-                  value={forceGain}
-                  onChange={(e) => setForceGain(e.target.value)}
-                  style={{
-                    width: '100%',
-                    padding: '12px',
-                    borderRadius: '8px',
-                    backgroundColor: '#0f172a',
-                    border: '1px solid #334155',
-                    color: 'white',
-                    fontSize: '16px'
-                  }}
-                  placeholder="Желаемый выигрыш в силе"
-                />
-              </div>
-            )}
+<div style={{ marginBottom: '24px' }}>
+  <h2 style={{ color: '#dbeafe', marginBottom: '16px', fontSize: '18px' }}>
+    Введите параметры рычага:
+  </h2>
+  
+  {/* Две колонки с параметрами */}
+  <div style={{ 
+    display: 'grid', 
+    gridTemplateColumns: '1fr 1fr', 
+    gap: '20px', 
+    marginBottom: '20px'
+  }}>
+    
+    {/* Левая сторона */}
+    <div>
+      <div style={{ 
+        padding: '16px', 
+        backgroundColor: '#1e293b', 
+        borderRadius: '8px',
+        border: '1px solid #334155',
+        display: 'flex',
+        flexDirection: 'column',
+        height: '100%'
+      }}>
+        <h3 style={{ color: '#60a5fa', marginBottom: '16px', fontSize: '16px', textAlign: 'center' }}>
+          Левая сторона
+        </h3>
+        
+        {/* Сила */}
+        <div style={{ marginBottom: '20px' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+            <label style={{ color: '#cbd5e1' }}>Сила F₁ (Н)</label>
+            <span style={{ fontSize: '12px', color: '#64748b' }}>Типовые:</span>
           </div>
+          <div style={{ 
+            display: 'grid', 
+            gridTemplateColumns: 'repeat(3, 1fr)', 
+            gap: '6px', 
+            marginBottom: '10px' 
+          }}>
+            {typicalForces.slice(0, 3).map((item) => (
+              <button
+                key={item.value}
+                type="button"
+                onClick={() => selectTypicalForce(item.value, 'force1')}
+                style={{
+                  padding: '6px 4px',
+                  backgroundColor: force1 === item.value ? '#60a5fa' : '#334155',
+                  color: force1 === item.value ? '#0f172a' : 'white',
+                  border: `1px solid ${force1 === item.value ? '#60a5fa' : '#475569'}`,
+                  borderRadius: '6px',
+                  cursor: 'pointer',
+                  fontSize: 'clamp(10px, 2.5vw, 11px)',
+                  textAlign: 'center',
+                  transition: 'all 0.3s'
+                }}
+              >
+                <div style={{ fontWeight: 'bold' }}>{item.label}</div>
+              </button>
+            ))}
+          </div>
+          <input
+            type="number"
+            step="0.1"
+            value={force1}
+            onChange={(e) => setForce1(e.target.value)}
+            style={{
+              width: '100%',
+              padding: '12px',
+              borderRadius: '8px',
+              backgroundColor: '#0f172a',
+              border: '1px solid #334155',
+              color: 'white',
+              fontSize: '16px',
+              boxSizing: 'border-box'
+            }}
+            placeholder="Сила слева"
+          />
+        </div>
+        
+        {/* Плечо */}
+        <div>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+            <label style={{ color: '#cbd5e1' }}>Плечо L₁ (м)</label>
+            <span style={{ fontSize: '12px', color: '#64748b' }}>Типовые:</span>
+          </div>
+          <div style={{ 
+            display: 'grid', 
+            gridTemplateColumns: 'repeat(3, 1fr)', 
+            gap: '6px', 
+            marginBottom: '10px' 
+          }}>
+            {typicalArms.slice(0, 3).map((item) => (
+              <button
+                key={item.value}
+                type="button"
+                onClick={() => selectTypicalArm(item.value, 'arm1')}
+                style={{
+                  padding: '6px 4px',
+                  backgroundColor: arm1 === item.value ? '#60a5fa' : '#334155',
+                  color: arm1 === item.value ? '#0f172a' : 'white',
+                  border: `1px solid ${arm1 === item.value ? '#60a5fa' : '#475569'}`,
+                  borderRadius: '6px',
+                  cursor: 'pointer',
+                  fontSize: 'clamp(10px, 2.5vw, 11px)',
+                  textAlign: 'center',
+                  transition: 'all 0.3s'
+                }}
+              >
+                <div style={{ fontWeight: 'bold' }}>{item.label}</div>
+              </button>
+            ))}
+          </div>
+          <input
+            type="number"
+            step="0.01"
+            value={arm1}
+            onChange={(e) => setArm1(e.target.value)}
+            style={{
+              width: '100%',
+              padding: '12px',
+              borderRadius: '8px',
+              backgroundColor: '#0f172a',
+              border: '1px solid #334155',
+              color: 'white',
+              fontSize: '16px',
+              boxSizing: 'border-box'
+            }}
+            placeholder="Длина плеча слева"
+          />
+        </div>
+      </div>
+    </div>
+    
+    {/* Правая сторона */}
+    <div>
+      <div style={{ 
+        padding: '16px', 
+        backgroundColor: '#1e293b', 
+        borderRadius: '8px',
+        border: '1px solid #334155',
+        display: 'flex',
+        flexDirection: 'column',
+        height: '100%'
+      }}>
+        <h3 style={{ color: '#60a5fa', marginBottom: '16px', fontSize: '16px', textAlign: 'center' }}>
+          Правая сторона
+        </h3>
+        
+        {/* Сила */}
+        <div style={{ marginBottom: '20px' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+            <label style={{ color: '#cbd5e1' }}>Сила F₂ (Н)</label>
+            <span style={{ fontSize: '12px', color: '#64748b' }}>Типовые:</span>
+          </div>
+          <div style={{ 
+            display: 'grid', 
+            gridTemplateColumns: 'repeat(3, 1fr)', 
+            gap: '6px', 
+            marginBottom: '10px' 
+          }}>
+            {typicalForces.slice(3, 6).map((item) => (
+              <button
+                key={item.value}
+                type="button"
+                onClick={() => selectTypicalForce(item.value, 'force2')}
+                style={{
+                  padding: '6px 4px',
+                  backgroundColor: force2 === item.value ? '#60a5fa' : '#334155',
+                  color: force2 === item.value ? '#0f172a' : 'white',
+                  border: `1px solid ${force2 === item.value ? '#60a5fa' : '#475569'}`,
+                  borderRadius: '6px',
+                  cursor: 'pointer',
+                  fontSize: 'clamp(10px, 2.5vw, 11px)',
+                  textAlign: 'center',
+                  transition: 'all 0.3s'
+                }}
+              >
+                <div style={{ fontWeight: 'bold' }}>{item.label}</div>
+              </button>
+            ))}
+          </div>
+          <input
+            type="number"
+            step="0.1"
+            value={force2}
+            onChange={(e) => setForce2(e.target.value)}
+            style={{
+              width: '100%',
+              padding: '12px',
+              borderRadius: '8px',
+              backgroundColor: '#0f172a',
+              border: '1px solid #334155',
+              color: 'white',
+              fontSize: '16px',
+              boxSizing: 'border-box'
+            }}
+            placeholder="Сила справа"
+          />
+        </div>
+        
+        {/* Плечо */}
+        <div>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+            <label style={{ color: '#cbd5e1' }}>Плечо L₂ (м)</label>
+            <span style={{ fontSize: '12px', color: '#64748b' }}>Типовые:</span>
+          </div>
+          <div style={{ 
+            display: 'grid', 
+            gridTemplateColumns: 'repeat(3, 1fr)', 
+            gap: '6px', 
+            marginBottom: '10px' 
+          }}>
+            {typicalArms.slice(3, 6).map((item) => (
+              <button
+                key={item.value}
+                type="button"
+                onClick={() => selectTypicalArm(item.value, 'arm2')}
+                style={{
+                  padding: '6px 4px',
+                  backgroundColor: arm2 === item.value ? '#60a5fa' : '#334155',
+                  color: arm2 === item.value ? '#0f172a' : 'white',
+                  border: `1px solid ${arm2 === item.value ? '#60a5fa' : '#475569'}`,
+                  borderRadius: '6px',
+                  cursor: 'pointer',
+                  fontSize: 'clamp(10px, 2.5vw, 11px)',
+                  textAlign: 'center',
+                  transition: 'all 0.3s'
+                }}
+              >
+                <div style={{ fontWeight: 'bold' }}>{item.label}</div>
+              </button>
+            ))}
+          </div>
+          <input
+            type="number"
+            step="0.01"
+            value={arm2}
+            onChange={(e) => setArm2(e.target.value)}
+            style={{
+              width: '100%',
+              padding: '12px',
+              borderRadius: '8px',
+              backgroundColor: '#0f172a',
+              border: '1px solid #334155',
+              color: 'white',
+              fontSize: '16px',
+              boxSizing: 'border-box'
+            }}
+            placeholder="Длина плеча справа"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {/* Для режима выигрыша в силе */}
+  {mode === 'forceGain' && (
+    <div style={{ marginTop: '20px' }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+        <label style={{ color: '#cbd5e1' }}>Требуемый выигрыш (раз)</label>
+        <span style={{ fontSize: '12px', color: '#64748b' }}>Типовые:</span>
+      </div>
+      <div style={{ 
+        display: 'grid', 
+        gridTemplateColumns: 'repeat(auto-fit, minmax(60px, 1fr))', 
+        gap: '6px', 
+        marginBottom: '12px' 
+      }}>
+        {typicalGains.map((item) => (
+          <button
+            key={item.value}
+            type="button"
+            onClick={() => selectTypicalGain(item.value)}
+            style={{
+              padding: '8px 4px',
+              backgroundColor: forceGain === item.value ? '#60a5fa' : '#334155',
+              color: forceGain === item.value ? '#0f172a' : 'white',
+              border: `1px solid ${forceGain === item.value ? '#60a5fa' : '#475569'}`,
+              borderRadius: '6px',
+              cursor: 'pointer',
+              fontSize: '12px',
+              fontWeight: 'bold',
+              textAlign: 'center',
+              transition: 'all 0.3s'
+            }}
+          >
+            {item.label}
+          </button>
+        ))}
+      </div>
+      <input
+        type="number"
+        step="0.1"
+        value={forceGain}
+        onChange={(e) => setForceGain(e.target.value)}
+        style={{
+          width: '100%',
+          padding: '12px',
+          borderRadius: '8px',
+          backgroundColor: '#0f172a',
+          border: '1px solid #334155',
+          color: 'white',
+          fontSize: '16px'
+        }}
+        placeholder="Желаемый выигрыш в силе"
+      />
+    </div>
+  )}
+</div>
 
           {/* РЕЗУЛЬТАТЫ */}
           <div style={{
@@ -1013,34 +1031,123 @@ export default function RychagiPage() {
             </div>
           </div>
           
-          <div style={{ marginBottom: '30px' }}>
-            <h2 style={{ fontSize: '22px', marginBottom: '15px', color: '#60a5fa' }}>
-              Типы рычагов и их применение
-            </h2>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '15px', marginBottom: '20px' }}>
-              <div style={{ backgroundColor: '#0f172a', padding: '15px', borderRadius: '8px', border: '1px solid #334155' }}>
-                <h3 style={{ fontSize: '16px', marginBottom: '10px', color: '#06b6d4', textAlign: 'center' }}>Ⅰ род</h3>
-                <p style={{ color: '#cbd5e1', fontSize: '14px', textAlign: 'center' }}>
-                  <strong>Опора посередине</strong><br/>
-                  Ножницы, качели, плоскогубцы, весы
-                </p>
-              </div>
-              <div style={{ backgroundColor: '#0f172a', padding: '15px', borderRadius: '8px', border: '1px solid #334155' }}>
-                <h3 style={{ fontSize: '16px', marginBottom: '10px', color: '#06b6d4', textAlign: 'center' }}>Ⅱ род</h3>
-                <p style={{ color: '#cbd5e1', fontSize: '14px', textAlign: 'center' }}>
-                  <strong>Груз посередине</strong><br/>
-                  Тачка, орехокол, двери, стеклорез
-                </p>
-              </div>
-              <div style={{ backgroundColor: '#0f172a', padding: '15px', borderRadius: '8px', border: '1px solid #334155' }}>
-                <h3 style={{ fontSize: '16px', marginBottom: '10px', color: '#06b6d4', textAlign: 'center' }}>Ⅲ род</h3>
-                <p style={{ color: '#cbd5e1', fontSize: '14px', textAlign: 'center' }}>
-                  <strong>Усилие посередине</strong><br/>
-                  Пинцет, щипцы, швабра, лопата
-                </p>
-              </div>
-            </div>
-          </div>
+          {/* Типы рычагов и их применение */}
+<div style={{ marginBottom: '30px' }}>
+  <h2 style={{ fontSize: '22px', marginBottom: '15px', color: '#60a5fa' }}>
+    Типы рычагов и их применение
+  </h2>
+  <div style={{ 
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '12px',
+    width: '100%'
+  }}>
+    {/* I род */}
+    <div style={{ 
+      backgroundColor: '#0f172a', 
+      padding: '15px', 
+      borderRadius: '8px', 
+      border: '1px solid #334155',
+      width: '100%',
+      boxSizing: 'border-box'
+    }}>
+      <div style={{
+        display: 'flex',
+        alignItems: 'center',
+        gap: '15px',
+        flexWrap: 'wrap'
+      }}>
+        <h3 style={{ 
+          fontSize: '20px', 
+          color: '#06b6d4', 
+          fontWeight: 'bold',
+          minWidth: '60px',
+          margin: 0
+        }}>
+          Ⅰ род
+        </h3>
+        <p style={{ 
+          color: '#cbd5e1', 
+          fontSize: '16px', 
+          margin: 0,
+          flex: 1
+        }}>
+          <strong>Опора посередине</strong> — ножницы, качели, плоскогубцы, весы
+        </p>
+      </div>
+    </div>
+    
+    {/* II род */}
+    <div style={{ 
+      backgroundColor: '#0f172a', 
+      padding: '15px', 
+      borderRadius: '8px', 
+      border: '1px solid #334155',
+      width: '100%',
+      boxSizing: 'border-box'
+    }}>
+      <div style={{
+        display: 'flex',
+        alignItems: 'center',
+        gap: '15px',
+        flexWrap: 'wrap'
+      }}>
+        <h3 style={{ 
+          fontSize: '20px', 
+          color: '#06b6d4', 
+          fontWeight: 'bold',
+          minWidth: '60px',
+          margin: 0
+        }}>
+          Ⅱ род
+        </h3>
+        <p style={{ 
+          color: '#cbd5e1', 
+          fontSize: '16px', 
+          margin: 0,
+          flex: 1
+        }}>
+          <strong>Груз посередине</strong> — тачка, орехокол, двери, стеклорез
+        </p>
+      </div>
+    </div>
+    
+    {/* III род */}
+    <div style={{ 
+      backgroundColor: '#0f172a', 
+      padding: '15px', 
+      borderRadius: '8px', 
+      border: '1px solid #334155',
+      width: '100%',
+      boxSizing: 'border-box'
+    }}>
+      <div style={{
+        display: 'flex',
+        alignItems: 'center',
+        gap: '15px',
+        flexWrap: 'wrap'
+      }}>
+        <h3 style={{ 
+          fontSize: '20px', 
+          color: '#06b6d4', 
+          fontWeight: 'bold',
+          minWidth: '60px',
+          margin: 0
+        }}>
+          Ⅲ род
+        </h3>
+        <p style={{ 
+          color: '#cbd5e1', 
+          fontSize: '16px', 
+          margin: 0,
+          flex: 1
+        }}>
+          <strong>Усилие посередине</strong> — пинцет, щипцы, швабра, лопата
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
           
           <div style={{ marginBottom: '30px' }}>
             <h2 style={{ fontSize: '22px', marginBottom: '15px', color: '#60a5fa' }}>

@@ -80,7 +80,7 @@ export default function HomePage() {
       <a href="/elektrotekhnika" style={{ color: '#94a3b8', textDecoration: 'none' }}>Электротехника</a>
       <a href="/teplotekhnika" style={{ color: '#94a3b8', textDecoration: 'none' }}>Теплотехника</a>
       <a href="/other" style={{ color: '#94a3b8', textDecoration: 'none' }}>Прочее</a>
-      <a href="#about" style={{ color: '#94a3b8', textDecoration: 'none' }}>О нас</a>
+      <a href="/about" style={{ color: '#94a3b8', textDecoration: 'none' }}>О нас</a> 
     </nav>
     
     {/* ПОИСК В ШАПКЕ (ТЕПЕРЬ РАБОТАЕТ) */}
@@ -133,7 +133,7 @@ export default function HomePage() {
         fontSize: '20px',
         cursor: 'pointer'
       }}>
-        🌙
+        
       </button>
     </form>
   </div>
@@ -404,7 +404,7 @@ onMouseOut={(e) => {
           <div>
             <h4 style={{ fontSize: '18px', fontWeight: 'bold', marginBottom: '15px', color: 'white' }}>Информация</h4>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-              <li style={{ marginBottom: '10px' }}><a href="#about" style={{ color: '#94a3b8', textDecoration: 'none' }}>О нас</a></li>
+              <li style={{ marginBottom: '10px' }}><a href="about" style={{ color: '#94a3b8', textDecoration: 'none' }}>О нас</a></li>
               <li style={{ marginBottom: '10px' }}><a href="#contact" style={{ color: '#94a3b8', textDecoration: 'none' }}>Контакты</a></li>
               <li style={{ marginBottom: '10px' }}><a href="#privacy" style={{ color: '#94a3b8', textDecoration: 'none' }}>Конфиденциальность</a></li>
               <li style={{ marginBottom: '10px' }}><a href="#terms" style={{ color: '#94a3b8', textDecoration: 'none' }}>Условия использования</a></li>

@@ -271,84 +271,106 @@ export default function ZakonOmaPage() {
           </div>
 
           {/* Выбор режима расчёта */}
-          <div style={{ marginBottom: '24px' }}>
-            <h3 style={{ color: '#cbd5e1', marginBottom: '12px', fontSize: '18px' }}>
-              Что нужно рассчитать?
-            </h3>
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(3, 1fr)',
-              gap: '10px',
-              marginBottom: '20px'
-            }}>
-              <button
-                onClick={() => setCalculationMode('resistance')}
-                style={{
-                  padding: '14px',
-                  backgroundColor: calculationMode === 'resistance' ? '#3b82f6' : '#334155',
-                  color: 'white',
-                  border: `2px solid ${calculationMode === 'resistance' ? '#3b82f6' : '#475569'}`,
-                  borderRadius: '8px',
-                  cursor: 'pointer',
-                  fontWeight: 'bold',
-                  fontSize: '16px'
-                }}
-              >
-                Сопротивление (R)
-              </button>
-              
-              <button
-                onClick={() => setCalculationMode('voltage')}
-                style={{
-                  padding: '14px',
-                  backgroundColor: calculationMode === 'voltage' ? '#3b82f6' : '#334155',
-                  color: 'white',
-                  border: `2px solid ${calculationMode === 'voltage' ? '#3b82f6' : '#475569'}`,
-                  borderRadius: '8px',
-                  cursor: 'pointer',
-                  fontWeight: 'bold',
-                  fontSize: '16px'
-                }}
-              >
-                Напряжение (U)
-              </button>
-              
-              <button
-                onClick={() => setCalculationMode('current')}
-                style={{
-                  padding: '14px',
-                  backgroundColor: calculationMode === 'current' ? '#3b82f6' : '#334155',
-                  color: 'white',
-                  border: `2px solid ${calculationMode === 'current' ? '#3b82f6' : '#475569'}`,
-                  borderRadius: '8px',
-                  cursor: 'pointer',
-                  fontWeight: 'bold',
-                  fontSize: '16px'
-                }}
-              >
-                Ток (I)
-              </button>
-            </div>
-            
-            <div style={{
-              backgroundColor: '#0f172a',
-              padding: '16px',
-              borderRadius: '8px',
-              border: '1px solid #334155',
-              marginTop: '10px'
-            }}>
-              <div style={{ color: '#3b82f6', fontWeight: 'bold', fontSize: '20px', textAlign: 'center' }}>
-                {calculationMode === 'resistance' ? 'R = U ÷ I' : 
-                 calculationMode === 'voltage' ? 'U = I × R' : 
-                 'I = U ÷ R'}
-              </div>
-              <p style={{ color: '#94a3b8', textAlign: 'center', fontSize: '14px', marginTop: '8px' }}>
-                {calculationMode === 'resistance' ? 'Сопротивление = Напряжение ÷ Ток' : 
-                 calculationMode === 'voltage' ? 'Напряжение = Ток × Сопротивление' : 
-                 'Ток = Напряжение ÷ Сопротивление'}
-              </p>
-            </div>
-          </div>
+<div style={{ marginBottom: '24px' }}>
+  <h3 style={{ color: '#cbd5e1', marginBottom: '12px', fontSize: '18px' }}>
+    Что нужно рассчитать?
+  </h3>
+  <div style={{
+    display: 'grid',
+    gridTemplateColumns: 'repeat(3, 1fr)',
+    gap: '8px',
+    marginBottom: '20px',
+    width: '100%'
+  }}>
+    <button
+      onClick={() => setCalculationMode('resistance')}
+      style={{
+        padding: '12px 6px',
+        backgroundColor: calculationMode === 'resistance' ? '#3b82f6' : '#334155',
+        color: 'white',
+        border: `2px solid ${calculationMode === 'resistance' ? '#3b82f6' : '#475569'}`,
+        borderRadius: '8px',
+        cursor: 'pointer',
+        fontWeight: 'bold',
+        fontSize: 'clamp(12px, 3vw, 16px)',
+        textAlign: 'center',
+        transition: 'all 0.3s',
+        whiteSpace: 'normal',
+        wordBreak: 'break-word',
+        lineHeight: '1.3',
+        minHeight: '60px'
+      }}
+    >
+      <div style={{ fontWeight: 'bold' }}>Сопротивление</div>
+      <div style={{ fontSize: 'clamp(10px, 2.5vw, 14px)', opacity: 0.9 }}>(R)</div>
+    </button>
+    
+    <button
+      onClick={() => setCalculationMode('voltage')}
+      style={{
+        padding: '12px 6px',
+        backgroundColor: calculationMode === 'voltage' ? '#3b82f6' : '#334155',
+        color: 'white',
+        border: `2px solid ${calculationMode === 'voltage' ? '#3b82f6' : '#475569'}`,
+        borderRadius: '8px',
+        cursor: 'pointer',
+        fontWeight: 'bold',
+        fontSize: 'clamp(12px, 3vw, 16px)',
+        textAlign: 'center',
+        transition: 'all 0.3s',
+        whiteSpace: 'normal',
+        wordBreak: 'break-word',
+        lineHeight: '1.3',
+        minHeight: '60px'
+      }}
+    >
+      <div style={{ fontWeight: 'bold' }}>Напряжение</div>
+      <div style={{ fontSize: 'clamp(10px, 2.5vw, 14px)', opacity: 0.9 }}>(U)</div>
+    </button>
+    
+    <button
+      onClick={() => setCalculationMode('current')}
+      style={{
+        padding: '12px 6px',
+        backgroundColor: calculationMode === 'current' ? '#3b82f6' : '#334155',
+        color: 'white',
+        border: `2px solid ${calculationMode === 'current' ? '#3b82f6' : '#475569'}`,
+        borderRadius: '8px',
+        cursor: 'pointer',
+        fontWeight: 'bold',
+        fontSize: 'clamp(12px, 3vw, 16px)',
+        textAlign: 'center',
+        transition: 'all 0.3s',
+        whiteSpace: 'normal',
+        wordBreak: 'break-word',
+        lineHeight: '1.3',
+        minHeight: '60px'
+      }}
+    >
+      <div style={{ fontWeight: 'bold' }}>Ток</div>
+      <div style={{ fontSize: 'clamp(10px, 2.5vw, 14px)', opacity: 0.9 }}>(I)</div>
+    </button>
+  </div>
+  
+  <div style={{
+    backgroundColor: '#0f172a',
+    padding: '16px',
+    borderRadius: '8px',
+    border: '1px solid #334155',
+    marginTop: '10px'
+  }}>
+    <div style={{ color: '#3b82f6', fontWeight: 'bold', fontSize: '20px', textAlign: 'center' }}>
+      {calculationMode === 'resistance' ? 'R = U ÷ I' : 
+       calculationMode === 'voltage' ? 'U = I × R' : 
+       'I = U ÷ R'}
+    </div>
+    <p style={{ color: '#94a3b8', textAlign: 'center', fontSize: '14px', marginTop: '8px' }}>
+      {calculationMode === 'resistance' ? 'Сопротивление = Напряжение ÷ Ток' : 
+       calculationMode === 'voltage' ? 'Напряжение = Ток × Сопротивление' : 
+       'Ток = Напряжение ÷ Сопротивление'}
+    </p>
+  </div>
+</div>
 
           {/* Поля ввода */}
           <div style={{ marginBottom: '24px' }}>
