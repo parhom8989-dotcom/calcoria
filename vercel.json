@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "destination": "https://www.calcoria.ru/$1",
+      "permanent": true,
+      "has": [
+        {
+          "type": "host",
+          "value": "calcoria.ru"
+        }
+      ]
+    }
+  ]
+}
